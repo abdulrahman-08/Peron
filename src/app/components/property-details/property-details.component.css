@@ -1,0 +1,206 @@
+.main-image {
+    position: relative;
+}
+
+.main-image img {
+    transition: opacity 0.3s ease-in-out; /* Fade effect when main image changes */
+}
+
+.main-image img:not([src=""]) {
+    opacity: 1;
+}
+
+.main-image img[src=""] {
+    opacity: 0;
+}
+
+.favorite-btn {
+    border-radius: 50%;
+    padding: 10px;
+    width: 32;
+    height: 32;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    white-space: nowrap; /* Prevent wrapping */
+    direction: ltr; /* Force LTR for consistent transform behavior */
+}
+
+.slider-item {
+    flex: 0 0 25%; /* Default: 4 items at a time */
+    padding: 0 5px;
+    display: inline-block; /* Ensure items stay in a single row */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.custom-slider:has(.slider-item:nth-child(4):last-child) .slider-item {
+    flex: 0 0 25%; /* 4 images: each takes 25% */
+}
+
+.custom-slider:has(.slider-item:nth-child(3):last-child) .slider-item {
+    flex: 0 0 33.33%; /* 3 images: each takes 33.33% */
+}
+
+.custom-slider:has(.slider-item:nth-child(2):last-child) .slider-item {
+    flex: 0 0 50%; /* 2 images: each takes 50% */
+}
+
+.custom-slider:has(.slider-item:nth-child(1):last-child) .slider-item {
+    flex: 0 0 100%; /* 1 image: takes 100% */
+}
+
+.slider-item img {
+    border-radius: 8px;
+    cursor: pointer; /* Show that the image is clickable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Smooth hover and selection effect */
+}
+
+.slider-item img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Highlight the selected image in the slider */
+.slider-item.selected img {
+    opacity: 0.7; /* Slight opacity to indicate selection */
+    border: 2px solid var(--main-color); /* Highlight border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle glow effect */
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #333;
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 1; /* Ensure buttons are above images */
+}
+
+.prev-btn {
+    left: 0px;
+}
+
+.next-btn {
+    right: 0px;
+}
+
+/* RTL Adjustments for Slider Only */
+[dir="rtl"] .custom-slider .slider-btn.prev-btn {
+    left: auto;
+    right: 0; /* Mirror the previous button position */
+}
+
+[dir="rtl"] .custom-slider .slider-btn.next-btn {
+    right: auto;
+    left: 0; /* Mirror the next button position */
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.nav-link {
+    color: #666;
+    font-weight: 500;
+    padding: 10px 20px;
+}
+
+.nav-link.active {
+    background-color: var(--main-color);
+    color: white;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.text-success {
+    color: #1a3c34 !important;
+}
+
+.review-item {
+    transition: background-color 0.2s ease;
+}
+
+.review-item:hover {
+    background-color: #f8f9fa;
+}
+
+.review-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.review-item h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.review-item p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid var(--main-color);
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: var(--main-color);
+    box-shadow: none;
+}
+
+.btn-success {
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+}
+
+.btn-success:hover {
+    background-color: #14532d;
+}
+
+.fa-star {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.list-unstyled li {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.map-container {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+google-map {
+    display: block;
+}

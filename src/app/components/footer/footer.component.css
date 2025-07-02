@@ -1,0 +1,158 @@
+.footer {
+    background-color: #0F7757;
+    color: white;
+  }
+  
+  /* تباعد داخلي */
+  .footer .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  
+  
+  .brand-name {
+    font-size: 40px;
+    font-weight: 400;
+    margin-left: 8px;
+  }
+  
+  /* عناوين الأعمدة */
+  .footer-links h4,
+  .footer-subscribe h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-links ul li  a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .footer-links ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .email-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #818181;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .email-box input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+  }
+  
+  .email-box input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+  }
+  .email-box input::placeholder::before {
+   content: url(../../../assets/imgs/mage_email.png);
+   width: 50px;
+   height: 50px;
+  }
+  .email-box button {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #0F7757;
+  }
+  
+  .email-box button i {
+    color: white;
+  }
+  
+  /* الجزء السفلي من الفوتر */
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* الأيقونات الاجتماعية */
+  .social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background: #ddd; /* خلفية افتراضية */
+    color: #333;      /* لون الأيقونة افتراضي */
+    font-size: 18px;
+    margin: 0 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Hover للأيقونات */
+  .social-icons a:hover {
+    color: #fff;
+  }
+  
+  .social-icons a:nth-child(1):hover {
+    background: #1877F2; /* Facebook */
+  }
+  
+  .social-icons a:nth-child(2):hover {
+    background: linear-gradient(45deg, #ff7a00, #ff0050, #d600ff); /* Instagram */
+  }
+  
+  .social-icons a:nth-child(3):hover {
+    background: #1c9c2d; /* whatsapp */
+  }
+  
+  /* وسائل الدفع */
+  .payment-icons img {
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+  }
+  
+  /* استجابة الشاشات الصغيرة */
+  @media (max-width: 768px) {
+    .footer .container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+    
+    /* توسيط العناصر في الأعمدة على الشاشات الصغيرة */
+    .footer-links h4,
+    .footer-subscribe h4 {
+      text-align: center;
+    }
+  
+    .footer-links ul li,
+    .footer-subscribe p,
+    .footer .payment-icons,
+    .footer .brand-name {
+      text-align: center;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+    }
+  
+    .social-icons {
+      margin-top: 10px;
+    }
+  }
+  

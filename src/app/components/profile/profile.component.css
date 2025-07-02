@@ -1,0 +1,658 @@
+.sidebar {
+    background-color: #fff;
+    padding: 20px;
+    height: 45vh;
+  }
+
+  .user-info img {
+    width: 50px;
+    height: 50px;
+  }
+  
+ .sidebar .nav-link {
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sidebar .nav-link.active {
+    background-color: var(--main-color);
+    color: #fff;
+  }
+  .camera-icon {
+    bottom: 0;
+    right: 40%;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+
+  
+
+  
+  .input-group input {
+    border-radius: 0.375rem 0 0 0.375rem;
+  }
+  
+  .input-group .input-group-text {
+    background-color: #fff;
+    border-left: 0;
+    border-radius: 0 0.375rem 0.375rem 0;
+  }
+  
+  .nav-tabs {
+    border-bottom: none;
+  }
+  
+  .nav-tabs .nav-link {
+    color: #333;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .advertise-section .nav-tabs .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 80%;
+    height: 2px;
+    background-color: #198754;
+    transform: translateX(-50%);
+  }
+  
+  .no-ads img {
+    max-width: 150px;
+  }
+  
+  .no-ads p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+
+  .btn-success:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+  }
+  
+  .search-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Search Input */
+  .search-input {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding-inline: 16px 40px; /* بدل padding: 8px 40px 8px 16px */
+    padding-block: 8px; /* للـ padding العمودي */
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .search-input::placeholder {
+    color: #999;
+  }
+  
+  /* Search Icon */
+  .search-icon {
+    position: absolute;
+    inset-inline-end: 12px; /* بدل right: 12px */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .nav-link.active i {
+    color: #fff;
+  }
+  
+  .main-content {
+    padding: 30px;
+  }
+  
+  .form-control {
+    border-radius: 10px;
+    
+  }
+  
+  .btn-success {
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+  .modal-content {
+    border-radius: 15px;
+    padding: 20px;
+  }
+  
+  .modal-header .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--main-color) !important;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .success-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #B00000; /* اللون الأخضر */
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow:
+      0 0 0 12px #EAEAEA,           /* الحلقة البيضاء */
+      0 0 0 20px #f8f8f8 ;/* حلقة رمادية خفيفة لعمل عمق */
+    margin: 20px auto; /* للتمركز في المنتصف أفقياً */
+  }
+  
+  .success-circle i {
+    color: #B00000;       /* لون الأيقونة (أبيض) */
+    font-size: 20px;
+    border-radius: 50%;
+    width: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background-color: white;   /* حجم الأيقونة */
+  }
+
+  
+  .modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .modal-footer .btn-outline-secondary {
+    border-radius: 8px;
+    padding: 8px 20px;
+    color: var(--main-color);
+    border-color: var(--main-color);
+  }
+  
+  .modal-footer .btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .modal-footer .btn-success {
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+  }
+  
+  .modal-footer .btn-success:hover {
+    background-color: #14532d;
+  }
+  /* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    margin-top: 100px; /* تقليل الـ margin-top */
+  }
+
+  .profile-title {
+    font-size: 1.5rem; /* تصغير عنوان الصفحة */
+  }
+
+  .sidebar {
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding: 15px; /* تقليل الـ padding */
+  }
+
+  .user-info img {
+    width: 40px; /* تصغير صورة المستخدم */
+    height: 40px;
+  }
+
+  .user-info h5 {
+    font-size: 1rem; /* تصغير نص الاسم */
+  }
+
+  .user-info p {
+    font-size: 0.9rem; /* تصغير نص الترحيب */
+  }
+
+  .sidebar .nav-link {
+    padding: 8px; /* تقليل الـ padding */
+    font-size: 0.9rem; /* تصغير النص */
+  }
+
+  .main-content {
+    padding: 20px; /* تقليل الـ padding */
+  }
+
+  .main-content img[style*="width: 100px"] {
+    width: 80px !important; /* تصغير صورة الملف الشخصي */
+    height: 80px !important;
+  }
+
+  .camera-icon {
+    inset-inline-end: 30%; /* ضبط الموقع للـ RTL/LTR */
+    font-size: 1.2rem; /* تصغير الأيقونة */
+  }
+
+  .form-control {
+    font-size: 0.9rem; /* تصغير نص الـ inputs */
+  }
+
+  .form-label {
+    font-size: 0.9rem; /* تصغير نص الـ labels */
+  }
+
+  .btn-success {
+    padding: 8px; /* تقليل الـ padding */
+    font-size: 0.9rem; /* تصغير النص */
+  }
+
+  .search-container .search-input {
+    font-size: 14px; /* تصغير نص الـ search */
+    padding-inline: 12px 30px; /* تقليل الـ padding */
+    padding-block: 6px;
+  }
+
+  .search-icon {
+    font-size: 14px; /* تصغير أيقونة البحث */
+    inset-inline-end: 10px;
+  }
+
+  .advertise-section .nav-tabs {
+    width: 90%; /* تصغير عرض الـ tabs */
+  }
+
+  .nav-tabs .nav-link {
+    font-size: 0.85rem; /* تصغير نص الـ tabs */
+  }
+
+  .no-ads img {
+    max-width: 120px; /* تصغير صورة no-ads */
+  }
+
+  .no-ads p {
+    font-size: 1rem; /* تصغير نص no-ads */
+  }
+
+  .card.rental-card {
+    margin-bottom: 15px; /* تقليل المسافة بين الـ cards */
+  }
+
+  .card-img-top {
+    height: 150px; /* تصغير ارتفاع الصورة */
+    object-fit: cover;
+  }
+
+  .card-body h5 {
+    font-size: 1rem; /* تصغير عنوان الـ card */
+  }
+
+  .card-body p {
+    font-size: 0.9rem; /* تصغير نص الموقع */
+  }
+
+  .card-body .fw-normal {
+    font-size: 0.85rem; /* تصغير نصوص التفاصيل */
+  }
+
+  .card-body .fa-star {
+    font-size: 0.9rem; /* تصغير النجوم */
+  }
+
+  .card-body .fa-heart {
+    font-size: 1.2rem; /* تصغير أيقونة القلب */
+  }
+
+  .card-body a[style*="width: 110px"] {
+    width: 90px !important; /* تصغير زر السعر */
+    height: 35px !important;
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    padding: 15px; /* تقليل الـ padding */
+    border-radius: 10px; /* تصغير الـ border-radius */
+  }
+
+  .modal-title {
+    font-size: 1.1rem; /* تصغير عنوان الـ modal */
+  }
+
+  .success-circle {
+    width: 60px; /* تصغير دائرة الـ modal */
+    height: 60px;
+    box-shadow:
+      0 0 0 8px #EAEAEA,
+      0 0 0 15px #f8f8f8;
+  }
+
+  .success-circle i {
+    font-size: 16px; /* تصغير الأيقونة */
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal-footer .btn-outline-secondary,
+  .modal-footer .btn-success {
+    padding: 6px 15px; /* تقليل الـ padding */
+    font-size: 0.9rem; /* تصغير النص */
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin-top: 80px; /* تقليل الـ margin-top أكتر */
+  }
+
+  .profile-title {
+    font-size: 1.25rem; /* تصغير عنوان الصفحة أكتر */
+  }
+
+  .sidebar {
+    padding: 12px; /* تقليل الـ padding أكتر */
+  }
+
+  .user-info img {
+    width: 35px; /* تصغير صورة المستخدم أكتر */
+    height: 35px;
+  }
+
+  .user-info h5 {
+    font-size: 0.9rem; /* تصغير نص الاسم أكتر */
+  }
+
+  .user-info p {
+    font-size: 0.85rem; /* تصغير نص الترحيب أكتر */
+  }
+
+  .sidebar .nav-link {
+    padding: 6px; /* تقليل الـ padding أكتر */
+    font-size: 0.85rem; /* تصغير النص أكتر */
+  }
+
+  .main-content {
+    padding: 15px; /* تقليل الـ padding أكتر */
+  }
+
+  .main-content img[style*="width: 100px"] {
+    width: 70px !important; /* تصغير صورة الملف الشخصي أكتر */
+    height: 70px !important;
+  }
+
+  .camera-icon {
+    inset-inline-end: 25%; /* ضبط الموقع أكتر */
+    font-size: 1.1rem; /* تصغير الأيقونة أكتر */
+  }
+
+  .form-control {
+    font-size: 0.85rem; /* تصغير نص الـ inputs أكتر */
+  }
+
+  .form-label {
+    font-size: 0.85rem; /* تصغير نص الـ labels أكتر */
+  }
+
+  .btn-success {
+    padding: 6px; /* تقليل الـ padding أكتر */
+    font-size: 0.85rem; /* تصغير النص أكتر */
+  }
+
+  .search-container .search-input {
+    font-size: 13px; /* تصغير نص الـ search أكتر */
+    padding-inline: 10px 25px; /* تقليل الـ padding أكتر */
+    padding-block: 5px;
+  }
+
+  .search-icon {
+    font-size: 13px; /* تصغير أيقونة البحث أكتر */
+    inset-inline-end: 8px;
+  }
+
+  .advertise-section .nav-tabs {
+    width: 100%; /* عرض كامل */
+  }
+
+  .nav-tabs .nav-link {
+    font-size: 0.8rem; /* تصغير نص الـ tabs أكتر */
+  }
+
+  .no-ads img {
+    max-width: 100px; /* تصغير صورة no-ads أكتر */
+  }
+
+  .no-ads p {
+    font-size: 0.9rem; /* تصغير نص no-ads أكتر */
+  }
+
+  .card.rental-card {
+    margin-bottom: 10px; /* تقليل المسافة بين الـ cards أكتر */
+  }
+
+  .card-img-top {
+    height: 120px; /* تصغير ارتفاع الصورة أكتر */
+  }
+
+  .card-body h5 {
+    font-size: 0.9rem; /* تصغير عنوان الـ card أكتر */
+  }
+
+  .card-body p {
+    font-size: 0.85rem; /* تصغير نص الموقع أكتر */
+  }
+
+  .card-body .fw-normal {
+    font-size: 0.8rem; /* تصغير نصوص التفاصيل أكتر */
+  }
+
+  .card-body .fa-star {
+    font-size: 0.85rem; /* تصغير النجوم أكتر */
+  }
+
+  .card-body .fa-heart {
+    font-size: 1.1rem; /* تصغير أيقونة القلب أكتر */
+  }
+
+  .card-body a[style*="width: 110px"] {
+    width: 80px !important; /* تصغير زر السعر أكتر */
+    height: 30px !important;
+    font-size: 0.85rem;
+  }
+
+  .modal-content {
+    padding: 12px; /* تقليل الـ padding أكتر */
+    border-radius: 8px; /* تصغير الـ border-radius أكتر */
+  }
+
+  .modal-title {
+    font-size: 1rem; /* تصغير عنوان الـ modal أكتر */
+  }
+
+  .success-circle {
+    width: 50px; /* تصغير دائرة الـ modal أكتر */
+    height: 50px;
+    box-shadow:
+      0 0 0 6px #EAEAEA,
+      0 0 0 12px #f8f8f8;
+  }
+
+  .success-circle i {
+    font-size: 14px; /* تصغير الأيقونة أكتر */
+    width: 20px;
+    height: 20px;
+  }
+
+  .modal-footer .btn-outline-secondary,
+  .modal-footer .btn-success {
+    padding: 5px 12px; /* تقليل الـ padding أكتر */
+    font-size: 0.85rem; /* تصغير النص أكتر */
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    margin-top: 60px; /* تقليل الـ margin-top أكتر */
+  }
+
+  .profile-title {
+    font-size: 1.1rem; /* تصغير عنوان الصفحة أكتر */
+  }
+
+  .sidebar {
+    padding: 10px; /* تقليل الـ padding أكتر */
+  }
+
+  .user-info img {
+    width: 30px; /* تصغير صورة المستخدم أكتر */
+    height: 30px;
+  }
+
+  .user-info h5 {
+    font-size: 0.85rem; /* تصغير نص الاسم أكتر */
+  }
+
+  .user-info p {
+    font-size: 0.8rem; /* تصغير نص الترحيب أكتر */
+  }
+
+  .sidebar .nav-link {
+    padding: 5px; /* تقليل الـ padding أكتر */
+    font-size: 0.8rem; /* تصغير النص أكتر */
+  }
+
+  .main-content {
+    padding: 12px; /* تقليل الـ padding أكتر */
+  }
+
+  .main-content img[style*="width: 100px"] {
+    width: 60px !important; /* تصغير صورة الملف الشخصي أكتر */
+    height: 60px !important;
+  }
+
+  .camera-icon {
+    inset-inline-end: 20%; /* ضبط الموقع أكتر */
+    font-size: 1rem; /* تصغير الأيقونة أكتر */
+  }
+
+  .form-control {
+    font-size: 0.8rem; /* تصغير نص الـ inputs أكتر */
+  }
+
+  .form-label {
+    font-size: 0.8rem; /* تصغير نص الـ labels أكتر */
+  }
+
+  .btn-success {
+    padding: 5px; /* تقليل الـ padding أكتر */
+    font-size: 0.8rem; /* تصغير النص أكتر */
+  }
+
+  .search-container .search-input {
+    font-size: 12px; /* تصغير نص الـ search أكتر */
+    padding-inline: 8px 20px; /* تقليل الـ padding أكتر */
+    padding-block: 4px;
+  }
+
+  .search-icon {
+    font-size: 12px; /* تصغير أيقونة البحث أكتر */
+    inset-inline-end: 6px;
+  }
+
+  .nav-tabs .nav-link {
+    font-size: 0.75rem; /* تصغير نص الـ tabs أكتر */
+  }
+
+  .no-ads img {
+    max-width: 80px; /* تصغير صورة no-ads أكتر */
+  }
+
+  .no-ads p {
+    font-size: 0.85rem; /* تصغير نص no-ads أكتر */
+  }
+
+  .card.rental-card {
+    margin-bottom: 8px; /* تقليل المسافة بين الـ cards أكتر */
+  }
+
+  .card-img-top {
+    height: 100px; /* تصغير ارتفاع الصورة أكتر */
+  }
+
+  .card-body h5 {
+    font-size: 0.85rem; /* تصغير عنوان الـ card أكتر */
+  }
+
+  .card-body p {
+    font-size: 0.8rem; /* تصغير نص الموقع أكتر */
+  }
+
+  .card-body .fw-normal {
+    font-size: 0.75rem; /* تصغير نصوص التفاصيل أكتر */
+  }
+
+  .card-body .fa-star {
+    font-size: 0.8rem; /* تصغير النجوم أكتر */
+  }
+
+  .card-body .fa-heart {
+    font-size: 1rem; /* تصغير أيقونة القلب أكتر */
+  }
+
+  .card-body a[style*="width: 110px"] {
+    width: 70px !important; /* تصغير زر السعر أكتر */
+    height: 28px !important;
+    font-size: 0.8rem;
+  }
+
+  .modal-content {
+    padding: 10px; /* تقليل الـ padding أكتر */
+    border-radius: 6px; /* تصغير الـ border-radius أكتر */
+  }
+
+  .modal-title {
+    font-size: 0.9rem; /* تصغير عنوان الـ modal أكتر */
+  }
+
+  .success-circle {
+    width: 40px; /* تصغير دائرة الـ modal أكتر */
+    height: 40px;
+    box-shadow:
+      0 0 0 5px #EAEAEA,
+      0 0 0 10px #f8f8f8;
+  }
+
+  .success-circle i {
+    font-size: 12px; /* تصغير الأيقونة أكتر */
+    width: 18px;
+    height: 18px;
+  }
+
+  .modal-footer .btn-outline-secondary,
+  .modal-footer .btn-success {
+    padding: 4px 10px; /* تقليل الـ padding أكتر */
+    font-size: 0.8rem; /* تصغير النص أكتر */
+  }
+}

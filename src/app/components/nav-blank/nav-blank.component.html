@@ -1,0 +1,125 @@
+<div class="bg-body fixed-top" style="z-index: 10;" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <nav class="navbar navbar-expand-md nav-bg">
+    <div class="container-lg container-fluid-md">
+      <a class="navbar-brand ms-2" routerLink="/">
+        <img src="./assets/imgs/logoGreen.png" alt="peron logo" class="navbar-logo">
+        <span style="color: var(--main-color);" class="fs-2 ms-3 fw-medium">{{ 'FOOTER.BRAND_NAME' | translate }}</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse w-100 justify-content-between" id="collapsibleNavId">
+        <ul class="navbar-nav m-auto p-2 me-3 mt-2 text-black fw-medium mt-lg-0 d-flex flex-column flex-md-row">
+          <li class="nav-item">
+            <a class="nav-link me-md-2" routerLink="/home" routerLinkActive="active-link">
+              {{ 'NAV.HOME' | translate }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-6 me-md-2" routerLink="/property" routerLinkActive="active-link">
+              {{ 'NAV.PROPERTY' | translate }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-md-2" routerLink="/contact-us" routerLinkActive="active-link">
+              {{ 'NAV.CONTACT_US' | translate }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-md-2" routerLink="/advertise" routerLinkActive="active-link">
+              {{ 'NAV.ADVERTISE' | translate }}
+            </a>
+          </li>
+        </ul>
+        <div class="navbar-nav ms-auto mt-2 mt-lg-0 d-flex align-items-center flex-column flex-md-row gap-2">
+          <!-- Language Dropdown -->
+          <li class="nav-item dropdown">
+            <button class="btn dropdown-toggle lang-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ currentLang == 'en' ? ('NAV.LANGUAGES.ENGLISH' | translate) : ('NAV.LANGUAGES.ARABIC' | translate) }}
+            </button>
+            <ul class="dropdown-menu">
+              <li><button class="dropdown-item" (click)="switchLang('en')">{{ 'NAV.LANGUAGES.ENGLISH' | translate }}</button></li>
+              <li><button class="dropdown-item" (click)="switchLang('ar')">{{ 'NAV.LANGUAGES.ARABIC' | translate }}</button></li>
+            </ul>
+          </li>
+        
+          <!-- Icons Container -->
+          <div class="d-flex align-items-center">
+            <!-- Favorites Icon -->
+            <li class="nav-item" *ngIf="isLoggedIn==true">
+              <a class="nav-link active position-relative" aria-current="page" routerLink="wishlist">
+                <i class="far fa-heart fs-4" [ngClass]="currentLang=='en'?'me-3':'me-2'"></i>
+                <span class="badge bg-success position-absolute">{{wishCount}}</span> 
+              </a>
+            </li>
+            <!-- Bell Icon with Dropdown -->
+            <li class="nav-item dropdown" *ngIf="isLoggedIn==true">
+              <a class="nav-link active position-relative" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-regular fa-bell fs-4" [ngClass]="currentLang=='en'?'me-3':'me-2'"></i>
+                <span class="badge bg-success position-absolute">{{notificationCount}}</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                <div *ngIf="notifications.length>0">
+                  <li class="dropdown-header fw-bold text-center py-2">New Notification</li>
+                  <li class="border-bottom" *ngFor="let notification of notifications | slice:0:3">
+                    <a class="dropdown-item d-flex justify-content-between align-items-center py-2" routerLink="/notifications">
+                      <span style="color: var(--main-color);">{{ notification.title }}</span>
+                      <small class="text-muted mt-5">{{ notification.timeAgo }}</small>
+                    </a>
+                  </li>
+                </div>
+                <li *ngIf="notifications.length==0" class="dropdown-header fw-bold text-center py-2">No Notification</li>
+                <li><hr class="dropdown-divider"></li>
+                <li class="mx-auto">
+                  <a class="dropdown-header text-decoration-none text-center text-muted py-2" routerLink="/notifications">
+                    all notification
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- Show "Join / Sign In" button if not logged in -->
+            <button *ngIf="!isLoggedIn" class="btn join-signin-btn ms-1" routerLink="/auth/login">
+              {{ 'NAV.JOIN_SIGNIN' | translate }}
+            </button>
+            <!-- Show User Dropdown if logged in -->
+            <li *ngIf="isLoggedIn" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-circle fs-4"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end user-dropdown">
+                <!-- Username -->
+                <li class="dropdown-header d-flex align-items-center p-3">
+                  <div class="user-avatar me-1">
+                    <span *ngIf="profileImage.length==0" class="avatar-initial">{{ userInitial.slice(0,1) }}</span>
+                    <img *ngIf="profileImage.length>0" class="w-100 rounded-5" [src]="profileImage" alt="profileImage">
+                  </div>
+                  <div>
+                    <h6 class="d-block fw-bolder">Hello ,</h6>
+                    <h6 class="mb-0">{{ userName }}</h6>
+                  </div>
+                </li>
+                <!-- View and Edit My Profile -->
+                <button class="dropdown-item d-flex align-items-center py-2" routerLink="/profile">
+                  <i class="fas fa-user-circle me-2"></i> {{ 'NAV.MY_PROFILE' | translate }}
+                </button>
+                <!-- Dashboard (only for admin) -->
+                <li *ngIf="dashboard">
+                  <button class="dropdown-item d-flex align-items-center py-2" routerLink="/auth/dashboard">
+                    <i class="fas fa-cog me-1"></i> {{ 'NAV.SETTINGS' | translate }}
+                  </button>
+                </li>
+                <!-- Logout -->
+                <li>
+                  <button class="dropdown-item d-flex align-items-center py-2" (click)="logout()">
+                    <i class="fas fa-sign-out-alt me-1"></i> {{ 'NAV.LOGOUT' | translate }}
+                  </button>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

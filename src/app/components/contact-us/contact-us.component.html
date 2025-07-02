@@ -1,0 +1,110 @@
+<div class="col-md-10 p-5 p-md-5 mx-auto contact-container" style="margin-top: 100px;">
+  <div class="contact-box" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+    <div class="row g-4">
+      <!-- Contact Info -->
+      <div class="col-12 col-md-5 caption p-4 p-md-5">
+        <div class="info-section">
+          <h3 class="section-title">{{ 'CONTACT_US.EMAIL_US' | translate }}</h3>
+          <p><i class="fa-regular fa-envelope me-2"></i>{{ 'CONTACT_US.EMAIL_ADDRESS' | translate }}</p>
+        </div>
+        <div class="info-section">
+          <h3 class="section-title">{{ 'CONTACT_US.CALL_US' | translate }}</h3>
+          <p><i class="fa-solid fa-phone me-2"></i>{{ 'CONTACT_US.PHONE_NUMBER' | translate }}</p>
+        </div>
+        <div class="info-section">
+          <h3 class="section-title">{{ 'CONTACT_US.SOCIAL_MEDIA' | translate }}</h3>
+          <div *ngIf="currentLang=='ar'" class="icons d-flex justify-content-start ">
+            <a href="http://wa.me/201119723643"><i class="fa-brands fa-whatsapp m-2"></i></a>
+            <a href="https://www.instagram.com/pero.n98/profilecard/?igsh=MTQyc3htcDU4Nm90Ng=="><i class="fa-brands fa-instagram m-2"></i></a>
+            <a href="https://www.facebook.com/share/1BiyXv9eF2/?mibextid=wwXIfr"><i class="fa-brands fa-facebook-f m-2"></i></a>
+          </div>
+          <div *ngIf="currentLang=='en'" class="icons d-flex justify-content-start">
+            <a href="https://www.facebook.com/share/1BiyXv9eF2/?mibextid=wwXIfr"><i class="fa-brands fa-facebook-f m-2"></i></a>
+            <a href="https://www.instagram.com/pero.n98/profilecard/?igsh=MTQyc3htcDU4Nm90Ng=="><i class="fa-brands fa-instagram m-2"></i></a>
+            <a href="http://wa.me/201119723643"><i class="fa-brands fa-whatsapp m-2"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="col-12 col-md-7 p-4 p-md-5">
+        <div class="form-area">
+          <h2 class="form-title">{{ 'CONTACT_US.FORM_TITLE' | translate }}</h2>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <!-- Full Name -->
+            <div class="mb-3">
+              <label for="name" class="form-label">{{ 'CONTACT_US.FORM.FULL_NAME_LABEL' | translate }}</label>
+              <input type="text" id="name" formControlName="name" class="form-control shadow-none" />
+              <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" class="text-danger">
+                <div *ngIf="contactForm.get('name')?.errors?.['required']">
+                  {{ 'CONTACT_US.FORM.ERROR.FULL_NAME_REQUIRED' | translate }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">{{ 'CONTACT_US.FORM.EMAIL_LABEL' | translate }}</label>
+              <input type="email" id="email" formControlName="email" class="form-control shadow-none" />
+              <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="text-danger">
+                <div *ngIf="contactForm.get('email')?.errors?.['required']">
+                  {{ 'CONTACT_US.FORM.ERROR.EMAIL_REQUIRED' | translate }}
+                </div>
+                <div *ngIf="contactForm.get('email')?.errors?.['email']">
+                  {{ 'CONTACT_US.FORM.ERROR.EMAIL_INVALID' | translate }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+              <label for="phone" class="form-label">{{ 'CONTACT_US.FORM.PHONE_LABEL' | translate }}</label>
+              <div class="input-group">
+                <span class="input-group-text">🇪🇬 (+20)</span>
+                <input type="tel" id="phone" formControlName="phone" class="form-control shadow-none" />
+              </div>
+              <div *ngIf="contactForm.get('phone')?.touched && contactForm.get('phone')?.invalid" class="text-danger">
+                <div *ngIf="contactForm.get('phone')?.errors?.['required']">
+                  {{ 'CONTACT_US.FORM.ERROR.PHONE_REQUIRED' | translate }}
+                </div>
+                <div *ngIf="contactForm.get('phone')?.errors?.['pattern']">
+                  {{ 'CONTACT_US.FORM.ERROR.PHONE_PATTERN' | translate }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-3">
+              <label for="message" class="form-label">{{ 'CONTACT_US.FORM.MESSAGE_LABEL' | translate }}</label>
+              <textarea id="message" rows="5" formControlName="message" class="form-control shadow-none"></textarea>
+              <div class="d-flex justify-content-between">
+                <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid" class="text-danger">
+                  <div *ngIf="contactForm.get('message')?.errors?.['required']">
+                    {{ 'CONTACT_US.FORM.ERROR.MESSAGE_REQUIRED' | translate }}
+                  </div>
+                  <div *ngIf="contactForm.get('message')?.errors?.['maxlength']">
+                    {{ 'CONTACT_US.FORM.ERROR.MESSAGE_MAXLENGTH' | translate }}
+                  </div>
+                </div>
+                <small class="text-muted">{{ getMessageLength() }}/300</small>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-submit" [disabled]="isSubmitting || contactForm.invalid">
+              {{ isSubmitting ? ('CONTACT_US.FORM.SENDING' | translate) : ('CONTACT_US.FORM.SUBMIT_BUTTON' | translate) }}
+            </button>
+
+            <!-- Success/Error Messages -->
+            <div *ngIf="submitSuccess" class="alert alert-success mt-3">
+              {{ 'CONTACT_US.FORM.SUCCESS_MESSAGE' | translate }}
+            </div>
+            <div *ngIf="submitError" class="alert alert-danger mt-3">
+              {{ submitError }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

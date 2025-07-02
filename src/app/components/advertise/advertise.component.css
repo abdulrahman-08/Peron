@@ -1,0 +1,287 @@
+.mt-custom {
+    margin-top: 150px !important; /* Add margin-top to position below navbar */
+}
+
+
+.main-card {
+    border: solid 1px var(--main-color);
+    border-radius: 15px;
+    box-shadow: none;
+    background-color: #fff;
+}
+
+.text-primary {
+    color: var(--main-color) !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.custom-input, .custom-textarea, .custom-select {
+    border: 1px solid var(--main-color) !important;
+    border-radius: 8px !important;
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.custom-input:focus, .custom-textarea:focus, .custom-select:focus {
+    box-shadow: none !important; /* Remove blue focus shadow */
+    border-color: var(--main-color) !important; /* Keep green border on focus */
+}
+
+.custom-textarea {
+    resize: none;
+}
+
+.custom-input-group-text {
+    background-color: #fff;
+    border: 1px solid var(--main-color);
+    border-right: none;
+    border-radius: 8px 0 0 8px !important;
+    padding: 0 10px;
+}
+
+.custom-input-group {
+    border: 1px solid var(--main-color);
+    border-left: none;
+    border-radius: 0 8px 8px 0 !important;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.custom-address-btn {
+    border: 1px solid var(--main-color);
+    border-left: none;
+    border-radius: 0 8px 8px 0 !important;
+    font-size: 0.9rem;
+}
+
+.address-icon {
+    color: var(--main-color);
+    margin-right: 5px;
+}
+
+.custom-switch, .custom-checkbox {
+    accent-color: var(--main-color) !important; /* Ensure checkboxes turn green when checked */
+    border-color: var(--main-color) !important; /* Green border when unchecked */
+}
+
+.custom-switch:focus, .custom-checkbox:focus {
+    box-shadow: none !important; /* Remove blue focus shadow on checkboxes */
+}
+
+.checkbox-label {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.upload-area {
+    border: 2px dashed var(--main-color);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.upload-icon {
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+.custom-browse-btn {
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    border-radius: 8px !important;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.selected-files {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.selected-files ul {
+    list-style: none;
+    padding: 0;
+}
+
+.selected-files li {
+    margin-bottom: 5px;
+}
+.custom-submit-btn {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 8px !important;
+    font-size: 1rem;
+    width: 50%; /* Make button take half the page width */
+}
+.custom-browse-btn:hover{
+    background-color: var(--main-color);
+    color: white;
+}
+.custom-submit-btn:hover{
+    background-color: var(--main-color);
+    color: white;
+}
+.custom-submit-btn:disabled {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.text-muted i {
+    font-size: 0.85rem;
+    background-color: white;
+    color: var(--main-color);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: var(--main-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.input-group .form-control {
+    border-radius: 4px 0 0 4px;
+}
+
+.input-group .btn {
+    border-radius: 0 4px 4px 0;
+}
+
+.btn-sm {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+/* Remove shadow from inputs and checkboxes */
+.no-shadow {
+    box-shadow: none !important;
+}
+
+/* Ensure map takes full width and stays below navbar */
+#map {
+    width: 100%;
+    height: 300px;
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+}
+
+.map-container {
+    position: relative;
+    z-index: 1; /* Ensure map stays below navbar */
+}
+
+/* Green checkbox when checked */
+.green-checkbox:checked {
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+}
+
+/* Optional: Ensure custom-switch and custom-checkbox have no shadow */
+.custom-switch,
+.custom-checkbox {
+    box-shadow: none !important;
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* خلفية شفافة داكنة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* عشان تكون فوق كل العناصر */
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 50px;
+    border-radius: 8px;
+    text-align: center;
+    width: 500px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .error-icon {
+    margin-bottom: 15px;
+  }
+  
+  .error-icon span {
+    font-size: 40px;
+    color: #ff0000; /* الأيقونة الحمراء */
+  }
+  
+  .popup-content h3 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .cancel-button {
+    padding: 8px 32px;
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+    background: none;
+    color: var(--main-color)    ;
+    cursor: pointer;
+  }
+  
+  .pay-button {
+    padding: 8px 32px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+  }
+  .success-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #B00000; /* اللون الأخضر */
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow:
+      0 0 0 12px #EAEAEA,           /* الحلقة البيضاء */
+      0 0 0 20px #f8f8f8 ;/* حلقة رمادية خفيفة لعمل عمق */
+    margin: 20px auto; /* للتمركز في المنتصف أفقياً */
+  }
+  
+  .success-circle i {
+    color: #B00000;       /* لون الأيقونة (أبيض) */
+    font-size: 20px;
+    border-radius: 50%;
+    width: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background-color: white;   /* حجم الأيقونة */
+  }

@@ -1,0 +1,19 @@
+<app-nav-blank></app-nav-blank>
+<div class="container p-5" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <div class="row align-items-center min-vh-100">
+    <div class="col-lg-6 error-content">
+      <h1>{{ 'NOT_FOUND.TITLE' | translate }}</h1>
+      <h2>{{ 'NOT_FOUND.SUBTITLE' | translate }}</h2>
+      <p class="error-description">
+        {{ 'NOT_FOUND.DESCRIPTION' | translate }}
+      </p>
+      <button class="btn btn-back" routerLink="/home">{{ 'NOT_FOUND.BACK_BUTTON' | translate }}</button>
+    </div>
+    <div class="col-lg-6">
+      <div class="error-image">
+        <img src="./assets/imgs/404Error.png" [alt]="'NOT_FOUND.IMAGE_ALT' | translate" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

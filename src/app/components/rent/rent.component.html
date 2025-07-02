@@ -1,0 +1,115 @@
+<section class="container" style="margin-top: 150px;">
+    <!-- Sort By and Search Bar -->
+    <div class="row g-3 mb-4 justify-content-between align-items-center">
+      <!-- Sort By -->
+      <div class="col-md-2" style="max-width: 130px;">
+        <div class="dropdown">
+          <button class="btn text-start sort-by-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ 'PROPERTY_FILTERS.SORT_BY' | translate }}
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" (click)="sortProperties('mostRented')" [ngClass]="{'active-sort': sortBy === 'mostRented'}">
+                {{ 'PROPERTY_FILTERS.MOST_RENTED' | translate }}
+                <i *ngIf="sortBy === 'mostRented'" class="fas fa-check text-success ms-2"></i>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="sortProperties('largestArea')" [ngClass]="{'active-sort': sortBy === 'largestArea'}">
+                {{ 'PROPERTY_FILTERS.LARGEST_AREA' | translate }}
+                <i *ngIf="sortBy === 'largestArea'" class="fas fa-check text-success ms-2"></i>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="sortProperties('lowerArea')" [ngClass]="{'active-sort': sortBy === 'lowerArea'}">
+                {{ 'PROPERTY_FILTERS.LOWER_AREA' | translate }}
+                <i *ngIf="sortBy === 'lowerArea'" class="fas fa-check text-success ms-2"></i>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="sortProperties('highestPrice')" [ngClass]="{'active-sort': sortBy === 'highestPrice'}">
+                {{ 'PROPERTY_FILTERS.HIGHEST_PRICE' | translate }}
+                <i *ngIf="sortBy === 'highestPrice'" class="fas fa-check text-success ms-2"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Search Bar -->
+      <div class="col-md-3 offset-md-3">
+        <div class="search-container">
+          <input type="text" class="form-control search-input focus-ring-success focus-ring" [placeholder]="'PROPERTY_FILTERS.SEARCH_PLACEHOLDER' | translate" [(ngModel)]="searchQuery" (input)="filterProperties()">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="rental-section py-3" >
+    <div class="container position-relative">
+      <div>
+        <div class="row g-4">
+          <div *ngFor="let item of topRentalProp" class="col-md-6 col-lg-4">
+            <div class="card rental-card" [routerLink]="['/property', item.propertyId]">
+              <div class="position-relative">
+                <div class="container">
+                  <img [src]="item.images[0]" class="card-img-top"
+                    style="border-radius: 16px; margin-top: 8px;" [alt]="item.location">
+                </div>
+                <div *ngIf="isLoggedIn==true" class="position-absolute m-4 top-0 end-0">
+                  <button *ngIf="!wishList.includes(item.propertyId)" class="btn text-success" (click)="addToWichList(item.propertyId); $event.stopPropagation()">
+                    <i class="fa-regular fa-heart fs-1"></i>
+                  </button>
+                  <button *ngIf="wishList.includes(item.propertyId)" class="btn text-success" (click)="removeProuWichList(item.propertyId); $event.stopPropagation()">
+                    <i class="fa-solid fa-heart fs-1"></i>
+                  </button>
+                </div>
+                <div class="position-absolute bottom-0 m-4 end-0">
+                  <a class="rounded-2 text-decoration-none text-white fw-bold d-flex justify-content-center align-items-center"
+                    style="width: 110px; height: 40px; background-color: var(--main-color);">
+                    EGP {{item.price}}
+                  </a>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title my-2">{{item.title}}</h5>
+                <div class="d-flex align-items-center">
+                  <ng-container *ngFor="let num of [1,2,3,4,5]">
+                    <i class="fa-star me-1" [ngClass]="{
+                      'fa-solid rating-color': num <= item.averageRating, 
+                      'fa-regular text-secondary': num > item.averageRating
+                    }"></i>
+                  </ng-container>
+                  <span class="ms-2">{{ item.averageRating }}</span>
+                </div>
+                <p class="text-muted">{{item.location}}</p>
+                <div class="row g-1 align-items-center justify-content-between">
+                  <div class="col-md-12 col-sm-12 col-12">
+                    <div class="row g-0">
+                      <div class="col-md-6 col-sm-6 col-6">
+                        <img src="./assets/imgs/Icon-room.png" alt="">
+                        <span class="fw-normal fs-6" style="color: #BFBFBF;"> {{item.bedrooms}} Rooms</span>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-6">
+                        <i class="ms-2 fa-solid fa-bath fa-flip-horizontal" style="color: #BFBFBF;"></i>
+                        <span class="fw-normal" style="color: #BFBFBF;"> {{item.bathrooms}} Bathrooms</span>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-6">
+                        <span class="fw-normal" style="color: #BFBFBF;">
+                          <img src="./assets/imgs/ic-bed.png" alt=""> {{item.bedrooms}} Bed
+                        </span>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-6">
+                        <span class="fw-normal" style="color: #BFBFBF;">
+                          <img src="./assets/imgs/icon_width.png" alt=""> {{item.area}}m² Area
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

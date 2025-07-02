@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Error Text Content */
+.error-content {
+  padding: 2rem;
+}
+
+.error-content h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.error-content h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.error-description {
+  color: #818181;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+.btn-back {
+  background-color: #0F7757;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 1rem; /* تحديد حجم واضح */
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #0a6346;
+  color: white;
+}
+
+/* Error Image */
+.error-image {
+  text-align: center;
+  max-width: 100%;
+}
+
+.error-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  
+  .error-content {
+    text-align: center;
+    padding: 1.5rem 1rem; /* تقليل الـ padding */
+  }
+  
+  .error-image {
+    margin-bottom: 1.5rem; /* تقليل الـ margin */
+  }
+  
+  .error-content h1 {
+    font-size: 2rem; /* تصغير أكبر من الحالي */
+  }
+  
+  .error-content h2 {
+    font-size: 1.75rem; /* تصغير أكبر من الحالي */
+  }
+  
+  .error-description {
+    font-size: 0.9rem;
+    margin: 1rem auto 2rem; /* ضبط المسافات */
+    max-width: 100%; /* جعل النص يأخذ العرض الكامل */
+  }
+  
+  .btn-back {
+    padding: 0.6rem 1.2rem; /* تقليل الـ padding */
+    font-size: 0.9rem; /* تصغير نص الزر */
+  }
+}
+
+@media (max-width: 576px) {
+  .error-content {
+    padding: 1rem 0.5rem; /* تقليل الـ padding أكتر */
+  }
+  
+  .error-content h1 {
+    font-size: 1.6rem; /* تصغير أكتر */
+  }
+  
+  .error-content h2 {
+    font-size: 1.4rem; /* تصغير أكتر */
+  }
+  
+  .error-description {
+    font-size: 0.85rem; /* تصغير النص */
+    line-height: 1.4; /* تقليل المسافة بين السطور */
+  }
+  
+  .btn-back {
+    padding: 0.5rem 1rem; /* تقليل الـ padding */
+    font-size: 0.85rem; /* تصغير نص الزر */
+  }
+  
+  .error-image img {
+    max-width: 80%; /* تصغير الصورة على شاشات صغيرة */
+  }
+}

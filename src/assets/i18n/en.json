@@ -1,0 +1,529 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "PROPERTY": "Property",
+    "CONTACT_US": "Contact Us",
+    "ADVERTISE": "Advertise",
+    "LANGUAGES": {
+      "ENGLISH": "English",
+      "ARABIC": "Arabic"
+    },
+    "JOIN_SIGNIN": "Join / Sign In",
+    "LOGOUT": "Logout",
+    "MY_PROFILE": "My Profile",
+    "SETTINGS": "Dashboard"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "EMAIL_LABEL": "Email",
+    "PASSWORD_LABEL": "Password",
+    "REMEMBER_ME": "Remember me",
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "SUBMIT_BUTTON": "Login",
+    "OR": "OR",
+    "NO_ACCOUNT": "Don't have an account?",
+    "SIGN_UP": "Sign Up"
+  },
+  "REGISTER": {
+    "TITLE": "Create New Account",
+    "FULL_NAME_LABEL": "Full Name",
+    "EMAIL_LABEL": "Email",
+    "PHONE_LABEL": "Phone",
+    "PASSWORD_LABEL": "Password",
+    "CONFIRM_PASSWORD_LABEL": "Confirm Password",
+    "TERMS_LABEL": "I agree to the",
+    "TERMS_CONDITIONS": "Terms & Conditions",
+    "SUBMIT_BUTTON": "Sign Up",
+    "ALREADY_HAVE_ACCOUNT": "Already have account?",
+    "LOGIN_LINK": "Log In",
+    "ERROR": {
+      "FULL_NAME_REQUIRED": "Full Name is Required",
+      "FULL_NAME_MIN_LENGTH": "Min-Length 3",
+      "FULL_NAME_MAX_LENGTH": "Max-Length 20",
+      "EMAIL_REQUIRED": "Email is Required",
+      "EMAIL_INVALID": "Email is Invalid",
+      "PHONE_REQUIRED": "Phone Number is Required",
+      "PHONE_PATTERN": "Accept only Egyptian phone numbers",
+      "PASSWORD_REQUIRED": "Password is Required",
+      "PASSWORD_PATTERN": "Password must start with upperCase then from 6 to 10",
+      "CONFIRM_PASSWORD_REQUIRED": "Confirm Password is Required",
+      "PASSWORDS_MISMATCH": "Passwords do not match."
+    }
+  },
+  "NEW_PASSWORD": {
+    "BACK": "Back",
+    "TITLE": "New Password",
+    "PASSWORD_LABEL": "New Password",
+    "CONFIRM_PASSWORD_LABEL": "Confirm Password",
+    "SUBMIT_BUTTON": "Reset Password",
+    "SUCCESS_TITLE": "Password Changed Successfully",
+    "SUCCESS_DESCRIPTION": "Your password has been updated successfully",
+    "BACK_TO_LOGIN": "Back to Login",
+    "ERROR": {
+      "PASSWORDS_MISMATCH": "Passwords do not match."
+    }
+  },
+  "RESET_PASSWORD": {
+    "BACK": "Back",
+    "TITLE": "Reset Password",
+    "DESCRIPTION": "After entering your Email / phone number, you will receive a message with your verification code.",
+    "EMAIL_PHONE_LABEL": "Email / Phone",
+    "SUBMIT_BUTTON": "Send code"
+  },
+  "ENTER_OTP": {
+    "BACK": "Back",
+    "TITLE": "Enter OTP",
+    "DESCRIPTION": "Enter the verification code sent to you.",
+    "RESEND": "Resend?",
+    "SUBMIT_BUTTON": "Send code"
+  },
+  "HERO": {
+    "TITLE": "Find the Perfect Rental or List Yours Today.",
+    "SUBTITLE": "Your space, your choice – rent or list with ease",
+    "SEARCH": {
+      "KEYWORD": "Enter Keyword...",
+      "LOCATION": "Location",
+      "PRICE": "Price",
+      "ADVANCED_SEARCH": "Advanced Search"
+    }
+  },
+  "GET_RECOMMENDATIONS": {
+    "TITLE": "Get home recommendations",
+    "SUBTITLE": "Sign in for a more personal experience.",
+    "SIGN_IN": "Sign In"
+  },
+  "RECOMMENDATIONS": {
+    "TITLE": "Recommendations for you",
+    "SUBTITLE": "Handpicked listings just for you! Find the perfect rental that fits your lifestyle",
+    "SEE_MORE": "See More"
+  },
+  "WHY_CHOOSE_US": {
+    "TITLE": "Why Choose Us?",
+    "CARD_1": {
+      "TITLE": "Find Your Ideal Home",
+      "DESCRIPTION": "Explore thousands of rental apartments in various locations and choose your perfect place with ease."
+    },
+    "CARD_2": {
+      "TITLE": "Advertise Properties",
+      "DESCRIPTION": "List your property in minutes and attract serious tenants quickly and effortlessly."
+    },
+    "CARD_3": {
+      "TITLE": "Smart Search",
+      "DESCRIPTION": "Discover the perfect apartment that matches your budget and lifestyle with advanced filters."
+    }
+  },
+  "TOP_PROPERTIES": {
+    "TITLE": "Top Rental Properties Available",
+    "SUBTITLE": "Find the perfect rental from our top-listed properties in prime locations"
+  },
+  "TESTIMONIALS": {
+    "TITLE": "What our customers say",
+    "TESTIMONIAL_1": "As a renter, I was looking for a trustworthy platform with affordable listings. This site made my search quick and hassle-free!",
+    "TESTIMONIAL_2": "As a renter, I was looking for a trustworthy platform with affordable listings. This site made my search quick and hassle-free, and communication with landlords was seamless!",
+    "TESTIMONIAL_3": "I listed my apartment here in minutes, and within a week, I found a serious tenant! Highly recommend this platform for both renting and listing properties.",
+    "NAMES": {
+      "PERSON_1": "Laila Hassan",
+      "PERSON_2": "Mohamed Salem",
+      "PERSON_3": "Ahmed Zidan"
+    },
+    "JOBS": {
+      "PERSON_1": "University Professor",
+      "PERSON_2": "Co-Architect",
+      "PERSON_3": "Entrepreneur"
+    }
+  },
+  "APP_SECTION": {
+    "TITLE": "Stay Ahead with Our App",
+    "DESCRIPTION": "Get instant alerts on new listings, exclusive deals, and real-time updates. Find your perfect rental or list your property anytime, anywhere – all at your fingertips!",
+    "DOWNLOAD": "Download now on"
+  },
+  "FOOTER": {
+    "BRAND_NAME": "Peron",
+    "INFORMATION": {
+      "TITLE": "Information",
+      "MY_ACCOUNT": "My Account",
+      "MY_CART": "My Cart",
+      "MY_WISHLIST": "My Wishlist",
+      "CHECKOUT": "Checkout"
+    },
+    "SERVICE": {
+      "TITLE": "Service",
+      "ABOUT_US": "About Us",
+      "TERMS_CONDITIONS": "Terms & Privacy Policy"
+    },
+    "SUBSCRIBE": {
+      "TITLE": "Subscribe",
+      "DESCRIPTION": "Enter your email below to be the first to know about new collections and product launches.",
+      "EMAIL": "Your Email"
+    },
+    "BOTTOM_RIGHTS": "© {year} Peron All Rights are reserved"
+  },
+  "PROPERTY_FILTERS": {
+    "SORT_BY": "Sort By",
+    "MOST_RENTED": "Most Rented",
+    "LARGEST_AREA": "Largest Area",
+    "LOWER_AREA": "Lower Area",
+    "HIGHEST_PRICE": "Highest Price",
+    "SEARCH_PLACEHOLDER": "Enter an address, neighborhood, City"
+  },
+  "PROPERTY_SEARCH": {
+    "CHOOSE_PLACE": "Choose Place",
+    "RENTAL_PERIOD": "Rental Period",
+    "RENTAL_PERIOD_MONTHLY": "Monthly",
+    "RENTAL_PERIOD_DAILY": "Daily",
+    "PRICE_RANGE": "Price Range",
+    "PRICE_FROM": "Price from",
+    "PRICE_TO": "Price to",
+    "ROOMS_LABEL": "Rooms",
+    "BATHROOMS_LABEL": "Bathrooms",
+    "FLOOR_LABEL": "Floor",
+    "RATING_LABEL": "Rating",
+    "FURNISHED": "Furnished",
+    "FURNISHED_YES": "Furnished",
+    "FURNISHED_NO": "Unfurnished",
+    "FURNISHED_PARTIALLY_FURNISHED": "Partially furnished",
+    "ADDITIONAL_SERVICES": "Additional Services",
+    "SERVICES": {
+      "ALL": "All",
+      "BALCONY": "Balcony",
+      "WIFI": "Wi-Fi",
+      "GARAGE": "Garage",
+      "SECURITY": "Security",
+      "CENTRAL_HEATING": "Central heating",
+      "ELEVATOR": "Elevator"
+    },
+    "PETS_ALLOWED": "Pets allowed",
+    "BOOKING_PERIOD": "Booking Period",
+    "FROM": "From",
+    "TO": "To",
+    "SELECT_DATE_RANGE": "Select Date Range",
+    "DAYS_OF_WEEK": {
+      "SUN": "Sun",
+      "MON": "Mon",
+      "TUE": "Tue",
+      "WED": "Wed",
+      "THU": "Thu",
+      "FRI": "Fri",
+      "SAT": "Sat"
+    },
+    "MONTHS": {
+      "JANUARY": "January",
+      "FEBRUARY": "February",
+      "MARCH": "March",
+      "APRIL": "April",
+      "MAY": "May",
+      "JUNE": "June",
+      "JULY": "July",
+      "AUGUST": "August",
+      "SEPTEMBER": "September",
+      "OCTOBER": "October",
+      "NOVEMBER": "November",
+      "DECEMBER": "December"
+    },
+    "SEARCH_PLACEHOLDER": "Enter an address, neighborhood, City",
+    "CURRENCY": "EGP",
+    "ROOMS": "Rooms",
+    "BATHROOMS": "Bathrooms",
+    "BED": "Bed",
+    "AREA": "Area",
+    "AREA_UNIT": "m²"
+  },
+  "FAVORITES": {
+    "NO_FAVORITES_TITLE": "No Favorites Yet!",
+    "NO_FAVORITES_DESCRIPTION": "Looks like you haven’t added any properties to your favorites. Start exploring and save the ones you love for easy access",
+    "EXPLORE_NOW": "Explore Now",
+    "LATER": "later.",
+    "BACK_TO_HOME": "Back to Home"
+  },
+  "CONTACT_US": {
+    "EMAIL_US": "Email Us",
+    "EMAIL_ADDRESS": "peron@gmail.com",
+    "CALL_US": "Call Us",
+    "PHONE_NUMBER": "(+20) 1119723643",
+    "SOCIAL_MEDIA": "Social Media",
+    "FORM_TITLE": "Contact Form",
+    "FORM": {
+      "FULL_NAME_LABEL": "Full Name",
+      "EMAIL_LABEL": "Email",
+      "PHONE_LABEL": "Phone",
+      "MESSAGE_LABEL": "Message",
+      "SUBMIT_BUTTON": "Send Message",
+      "SENDING": "Sending...",
+      "SUCCESS_MESSAGE": "Message sent successfully!",
+      "ERROR": {
+        "FULL_NAME_REQUIRED": "Full Name is required",
+        "EMAIL_REQUIRED": "Email is required",
+        "EMAIL_INVALID": "Please enter a valid email",
+        "PHONE_REQUIRED": "Phone number is required",
+        "PHONE_PATTERN": "Please enter a valid Egyptian phone number",
+        "MESSAGE_REQUIRED": "Message is required",
+        "MESSAGE_MAXLENGTH": "Message cannot exceed 300 characters",
+        "SUBMIT_FAILED": "Failed to send message. Please try again later."
+      }
+    }
+  }
+,"ADVERTISE": {
+  "TITLE": "Add Your Adverties",
+  "POPUP": {
+    "TITLE": "Payment is required to publish the ad",
+    "SUBTITLE": "Pay now to post your ad",
+    "CANCEL_BUTTON": "Cancel",
+    "PAY_BUTTON": "Pay Now"
+  },
+  "FORM": {
+    "TITLE_LABEL": "Advertise Title",
+    "TITLE_PLACEHOLDER": "Write The Title",
+    "PLACE_LABEL": "Place",
+    "PLACE_PLACEHOLDER": "Choose Place",
+    "SPACE_LABEL": "Space (m)",
+    "DETAILS_LABEL": "Advertise Details/Advantages",
+    "PHONE_UPDATE_MESSAGE": "To update your phone number, please navigate to your profile",
+    "PHONE_LABEL": "Phone Number",
+    "RENT_TYPE_LABEL": "Rent Type",
+    "RENT_TYPE_PLACEHOLDER": "Choose Rent Type",
+    "RENT_TYPE_DAILY": "Daily",
+    "RENT_TYPE_MONTHLY": "Monthly",
+    "WHATSAPP_CHECKBOX": "This phone has WhatsApp",
+    "EMAIL_CHECKBOX": "Contact me via email",
+    "MAP_LABEL": "Select Location on Map",
+    "MAP_INSTRUCTION": "Enter a detailed address (e.g., Abdel Salam Aref Street, Mansoura, Dakahlia, Egypt) for better results.",
+    "MAP_SEARCH_PLACEHOLDER": "Search for an address...",
+    "RESET_BUTTON": "Reset Location",
+    "SELECTED_LOCATION": "Selected Location",
+    "PRICE_LABEL": "Price (LE)",
+    "BATHROOMS_LABEL": "Bathrooms",
+    "BATHROOMS_PLACEHOLDER": "Choose Bathrooms",
+    "ROOMS_LABEL": "Rooms",
+    "FEATURES_LABEL": "Additional Features",
+    "FEATURES_PLACEHOLDER": "Choose multiple features",
+    "FEATURES": {
+      "FURNISHED": "Furnished",
+      "PETS_ALLOWED": "Pets Allowed",
+      "SMOKING_ALLOWED": "Smoking Allowed",
+      "GARAGE": "Garage",
+      "ELEVATOR": "Elevator",
+      "BALCONY": "Balcony",
+      "HEATING": "Central Heating",
+      "WIFI": "Wi-Fi",
+      "SECURITY": "Security"
+    },
+    "AVAILABLE_FROM_LABEL": "Available From",
+    "AVAILABLE_TO_LABEL": "Available To",
+    "FLOOR_LABEL": "Floor",
+    "MIN_BOOKING_DAYS_LABEL": "Minimum Booking Days",
+    "YOUTUBE_LABEL": "YouTube Link",
+    "DRAG_PHOTO": "Drag The Photo here",
+    "OR": "OR",
+    "CHOOSE_FILE": "Choose File",
+    "BROWSE_BUTTON": "Browse",
+    "SELECTED_FILES": "Selected Files",
+    "SUBMIT_BUTTON": "Publish",
+    "ERROR": {
+      "TITLE_REQUIRED": "Advertise Title is required",
+      "PLACE_REQUIRED": "Place is required",
+      "PRICE_REQUIRED": "Price is required",
+      "AVAILABLE_FROM_REQUIRED": "Available From date is required",
+      "AVAILABLE_TO_REQUIRED": "Available To date is required",
+      "SEARCH_EMPTY": "Please enter an address to search",
+      "SEARCH_NOT_FOUND": "Location not found. Try again with a more detailed address (e.g., Abdel Salam Aref Street, Mansoura, Dakahlia, Egypt)",
+      "SEARCH_ERROR": "An error occurred while searching. Please check your internet connection.",
+      "IMAGE_ERROR": "Only image files (JPEG, PNG, GIF) are allowed."
+    }
+  }
+},
+"PROFILE": {
+  "TITLE": "My Profile",
+  "AVATAR_ALT": "User Avatar",
+  "GREETING": "Hello,",
+  "SECTIONS": {
+    "ACCOUNT": "Account Details",
+    "ADVERTISE": "My Advertise",
+    "WISHLIST": "My Wishlists",
+    "LOGOUT": "Log out"
+  },
+  "FORM": {
+    "FULL_NAME_LABEL": "Full Name",
+    "EMAIL_LABEL": "Email Address",
+    "PHONE_LABEL": "Phone Number",
+    "OLD_PASSWORD_LABEL": "Current Password",
+    "OLD_PASSWORD_PLACEHOLDER": "Enter Current password",
+    "NEW_PASSWORD_LABEL": "New Password",
+    "NEW_PASSWORD_PLACEHOLDER": "Enter new password",
+    "CONFIRM_PASSWORD_LABEL": "Confirm New Password",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Confirm new password",
+    "SUBMIT_BUTTON": "Save Changes",
+    "ERROR": {
+      "FULL_NAME_REQUIRED": "Full Name is required",
+      "FULL_NAME_MIN_LENGTH": "Full Name must be at least 3 characters",
+      "FULL_NAME_MAX_LENGTH": "Full Name must not exceed 30 characters",
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Please enter a valid email",
+      "PHONE_REQUIRED": "Phone Number is required",
+      "PHONE_PATTERN": "Please enter a valid Egyptian phone number (e.g., 01Xxxxxxxxx)",
+      "OLD_PASSWORD_REQUIRED": "Old Password is required",
+      "NEW_PASSWORD_REQUIRED": "New Password is required",
+      "CONFIRM_PASSWORD_REQUIRED": "Confirm Password is required",
+      "PASSWORDS_MISMATCH": "Passwords do not match"
+    }
+  },
+  "ADVERTISE": {
+    "ADD_BUTTON": "Add",
+    "ADD_ADVERTISE_BUTTON": "Add Advertise",
+    "TABS": {
+      "PUBLISH": "Publish",
+      "DELETING": "Deleting",
+      "PENDING": "Pending"
+    },
+    "NO_ADS_ALT": "No Ads"
+  },
+  "WISHLIST": {
+    "NO_FAVORITES_ALT": "No Favorites",
+    "ROOMS": "Rooms",
+    "BATHROOMS": "Bathrooms",
+    "BED": "Bed",
+    "AREA_UNIT": "m²"
+  },
+  "MODAL": {
+    "CLOSE_ALT": "Close",
+    "TITLE": "Are You Sure?",
+    "CANCEL_BUTTON": "Cancel",
+    "CONFIRM_BUTTON": "Yes, Log Out"
+  }
+},
+"ABOUT": {
+  "US": {
+    "TITLE": "About Us",
+    "DESCRIPTION": "We provide knowledge to make your right real estate decisions!"
+  },
+  "MISSION": {
+    "TITLE": "Our Mission",
+    "DESCRIPTION": "To empower people to make  insightful real estate decisions that  maximize prosperity."
+  },
+  "VISION": {
+    "TITLE": "Our Vision",
+    "DESCRIPTION": "To be the most-valued,most-  leading, and most-referenced PropTech  company in our markets."
+  },
+  "STATS": {
+    "MONTHLY_LEADS": "Monthly leads",
+    "MONTHLY_VISITORS": "Monthly visitors",
+    "COMPOUNDS": "Compounds",
+    "LISTED_PROPERTIES": "Listed properties",
+    "BROKERS": "Brokers",
+    "YEARS": "Years",
+    "IN_MARKET": "In real estate market",
+    "EMPLOYEES": "Employees"
+  },
+  "AWARDS": {
+    "TITLE": "Awarded By",
+    "WORLD_ALT": "World Economic Forum",
+    "WORLD_CAPTION": "MENA top 100 Startups",
+    "ALSAUD_ALT": "Alsaud Award",
+    "ALSAUD_CAPTION": "Alsaud Entrepreneurship Award",
+    "FORBES_ALT": "Forbes",
+    "FORBES_CAPTION": "MENA 30 under 30",
+    "HARVARD_ALT": "Harvard",
+    "HARVARD_CAPTION": "MENA Fastest 500 Companies",
+    "USPTO_ALT": "USPTO",
+    "USPTO_CAPTION": "Online Buying US Patent"
+  }
+},
+"TERMS": {
+  "TITLE": "Terms of Use",
+  "EFFECTIVE_DATE": "Effective Date: April 22, 2025",
+  "WELCOME": "Welcome to",
+  "WELCOME_PLATFORM": "These Terms of Use (\"Terms\") govern your access to and use of the platform, including our website and mobile application (collectively referred to as the “Platform”).",
+  "WELCOME_AGREEMENT": "By using, you agree to comply with and be bound by these Terms.",
+  "DESCRIPTION": "is an online platform that connects property owners with potential tenants for rental purposes only. Users can list available properties for rent, search and filter listings, contact landlords via email or WhatsApp, interact with a chatbot for help, receive notifications, and leave reviews.",
+  "USER_TYPES": "There are two main types of users: property owners, who can list properties (subject to payment), and renters, who can browse and contact property owners. Users agree to provide accurate information, avoid illegal or abusive activities, and not publish misleading listings.",
+  "FEES": "may charge a fee for property listings, which will be communicated during the process and is generally non-refundable.",
+  "FEES_RESPONSIBILITY": "Users are responsible for the content they publish, and reserves the right to remove fraudulent or inappropriate listings.",
+  "COMMUNICATION": "Users may communicate through email, WhatsApp, or our chatbot.",
+  "COMMUNICATION_DISCLAIMER": "is not responsible for agreements made outside the platform or offline transactions.",
+  "REVIEWS": "The rating and review feature allows users to share experiences, but",
+  "REVIEWS_PRIVACY": "may moderate inappropriate feedback. All personal data is protected according to our Privacy Policy.",
+  "INTELLECTUAL_PROPERTY": "All content and technology used on is protected by intellectual property rights. Unauthorized use or distribution is prohibited.",
+  "TERMINATION": "We may suspend or terminate access to the platform in case of Terms violation.",
+  "GOVERNING_LAW": "These Terms are governed by the laws of the Arab Republic of Egypt. We may modify these Terms at any time with appropriate notice.",
+  "CONTACT_INFO": "For inquiries, please contact us at:"
+},
+"CHAT": {
+  "TITLE": "Peron Assistant",
+  "LOGO_ALT": "Peron Logo",
+  "SEND_ALT": "Send Message",
+  "INPUT_PLACEHOLDER": "Ask about anything",
+  "SMART_SERVICES": {
+    "TITLE": "Smart Assistant Services",
+    "SEARCH": "Easily search for rental apartments",
+    "INQUIRE": "Inquire about prices and terms with ease",
+    "EXAMPLE": "These are just examples of what I can do to assist you"
+  }
+},
+"NOTIFICATIONS": {
+  "DELETE": "Delete",
+  "NO_NOTIFICATIONS": "No notifications available."
+},
+"NOT_FOUND": {
+  "TITLE": "Page 404",
+  "SUBTITLE": "Not Found",
+  "DESCRIPTION": "Oops! The page you're looking for doesn't exist. Go back to the homepage or check the URL and try again",
+  "BACK_BUTTON": "Back to Home",
+  "IMAGE_ALT": "404 Error Illustration"
+},
+"PROPERTY_DETAILS": {
+  "MAIN_IMAGE_ALT": "Main Property Image",
+  "SLIDER_IMAGE_ALT": "Property Image",
+  "TABS": {
+    "DESCRIPTIONS": "Descriptions",
+    "ADDITIONAL_INFO": "Additional Information",
+    "REVIEWS": "Reviews"
+  },
+  "REVIEWS_COUNT": "reviews",
+  "ROOMS": "Rooms",
+  "BATHROOMS": "Bathrooms",
+  "BED": "Bed",
+  "AREA": "Area",
+  "ICON_ROOM_ALT": "Room Icon",
+  "ICON_BED_ALT": "Bed Icon",
+  "ICON_AREA_ALT": "Area Icon",
+  "CURRENCY": "EGP",
+  "APARTMENT_DESCRIPTION": "Apartment Description",
+  "DESCRIPTION_DEFAULT": {
+    "TYPE": "Type: A modern apartment located in",
+    "BEDROOMS": "It consists of {{bedrooms}} bedrooms",
+    "KITCHEN": "a kitchen",
+    "BATHROOM": "{{count}} bathroom{{count > 1 ? 's' : ''}}",
+    "BALCONY": "and a balcony",
+    "FLOOR": "The apartment is on the {{floor}}{{floor === 1 ? 'st' : floor === 2 ? 'nd' : floor === 3 ? 'rd' : 'th'}} floor",
+    "ELEVATOR": "of a building equipped with an elevator",
+    "NO_ELEVATOR": "of a building",
+    "AREA": "Area: {{area}} square meters.",
+    "FURNISHED": "Finishing: Fully furnished.",
+    "UNFURNISHED": "Finishing: Unfurnished."
+  },
+  "APARTMENT_FEATURES": "Apartment Features",
+  "FEATURES": {
+    "SECURITY": "24 hours security and surveillance.",
+    "INTERNET": "Includes recreational amenities such as Wi-Fi.",
+    "ELEVATOR": "Equipped with an elevator.",
+    "PETS": "Pet-Friendly."
+  },
+  "REVIEWS_TITLE": "Customer Reviews",
+  "REVIEWS_POSTED": "Posted On",
+  "ADD_REVIEW": "Add Your Review",
+  "YOUR_RATING": "Your Rating",
+  "REVIEW_PLACEHOLDER": "Enter Your Review",
+  "REVIEW_REQUIRED": "Review comment is required.",
+  "SUBMIT_REVIEW": "Submit",
+  "ADDITIONAL_AMENITIES": "Additional Amenities",
+  "AMENITIES": {
+    "ELEVATOR": "Equipped with an elevator",
+    "PETS": "Pet-Friendly",
+    "SMOKING": "Smoking Allowed",
+    "WIFI": "Wi-Fi Available"
+  },
+  "AVAILABILITY": "Availability",
+  "AVAILABILITY_TEXT": "Available from {{from}} to {{to}}. Minimum booking: {{days}} days.",
+  "LOCATION": "Location"
+}
+
+}

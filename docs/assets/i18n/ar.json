@@ -1,0 +1,528 @@
+{
+  "NAV": {
+    "HOME": "الرئيسية",
+    "PROPERTY": "العقارات",
+    "CONTACT_US": "اتصل بنا",
+    "ADVERTISE": "الإعلانات",
+    "LANGUAGES": {
+      "ENGLISH": "الإنجليزية",
+      "ARABIC": "العربية"
+    },
+    "JOIN_SIGNIN": "انضم / تسجيل الدخول",
+    "LOGOUT": "تسجيل الخروج",
+    "MY_PROFILE": "ملفي الشخصي",
+    "SETTINGS": "لوحة التحكم"
+  },
+  "LOGIN": {
+    "TITLE": "تسجيل الدخول",
+    "EMAIL_LABEL": "البريد الإلكتروني",
+    "PASSWORD_LABEL": "كلمة المرور",
+    "REMEMBER_ME": "تذكرني",
+    "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+    "SUBMIT_BUTTON": "تسجيل الدخول",
+    "OR": "أو",
+    "NO_ACCOUNT": "ليس لديك حساب؟",
+    "SIGN_UP": "سجل الآن"
+  },
+  "REGISTER": {
+    "TITLE": "إنشاء حساب جديد",
+    "FULL_NAME_LABEL": "الاسم الكامل",
+    "EMAIL_LABEL": "البريد الإلكتروني",
+    "PHONE_LABEL": "الهاتف",
+    "PASSWORD_LABEL": "كلمة المرور",
+    "CONFIRM_PASSWORD_LABEL": "تأكيد كلمة المرور",
+    "TERMS_LABEL": "أوافق على",
+    "TERMS_CONDITIONS": "الشروط والأحكام",
+    "SUBMIT_BUTTON": "إنشاء حساب",
+    "ALREADY_HAVE_ACCOUNT": "لديك حساب بالفعل؟",
+    "LOGIN_LINK": "تسجيل الدخول",
+    "ERROR": {
+      "FULL_NAME_REQUIRED": "الاسم الكامل مطلوب",
+      "FULL_NAME_MIN_LENGTH": "الحد الأدنى للطول 3",
+      "FULL_NAME_MAX_LENGTH": "الحد الأقصى للطول 20",
+      "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب",
+      "EMAIL_INVALID": "البريد الإلكتروني غير صالح",
+      "PHONE_REQUIRED": "رقم الهاتف مطلوب",
+      "PHONE_PATTERN": "يُقبل فقط أرقام الهواتف المصرية",
+      "PASSWORD_REQUIRED": "كلمة المرور مطلوبة",
+      "PASSWORD_PATTERN": "كلمة المرور يجب أن تبدأ بحرف كبير ثم من 6 إلى 10 أحرف",
+      "CONFIRM_PASSWORD_REQUIRED": "تأكيد كلمة المرور مطلوب",
+      "PASSWORDS_MISMATCH": "كلمتا المرور غير متطابقتين."
+    }
+  },
+  "NEW_PASSWORD": {
+    "BACK": "رجوع",
+    "TITLE": "كلمة المرور الجديدة",
+    "PASSWORD_LABEL": "كلمة المرور الجديدة",
+    "CONFIRM_PASSWORD_LABEL": "تأكيد كلمة المرور",
+    "SUBMIT_BUTTON": "إعادة تعيين كلمة المرور",
+    "SUCCESS_TITLE": "تم تغيير كلمة المرور بنجاح",
+    "SUCCESS_DESCRIPTION": "تم تحديث كلمة المرور الخاصة بك بنجاح",
+    "BACK_TO_LOGIN": "العودة إلى تسجيل الدخول",
+    "ERROR": {
+      "PASSWORDS_MISMATCH": "كلمتا المرور غير متطابقتين."
+    }
+  },
+  "RESET_PASSWORD": {
+    "BACK": "رجوع",
+    "TITLE": "إعادة تعيين كلمة المرور",
+    "DESCRIPTION": "بعد إدخال بريدك الإلكتروني أو رقم هاتفك، ستتلقى رسالة تحتوي على رمز التحقق الخاص بك.",
+    "EMAIL_PHONE_LABEL": "البريد الإلكتروني / الهاتف",
+    "SUBMIT_BUTTON": "إرسال الرمز"
+  },
+  "ENTER_OTP": {
+    "BACK": "رجوع",
+    "TITLE": "أدخل رمز التحقق",
+    "DESCRIPTION": "أدخل رمز التحقق الذي تم إرساله إليك.",
+    "RESEND": "إعادة إرسال؟",
+    "SUBMIT_BUTTON": "إرسال الرمز"
+  },
+  "HERO": {
+    "TITLE": "ابحث عن الإيجار المثالي أو اعرض عقارك اليوم.",
+    "SUBTITLE": "مساحتك، اختيارك – استأجر أو اعرض بسهولة",
+    "SEARCH": {
+      "KEYWORD": "أدخل كلمة مفتاحية...",
+      "LOCATION": "الموقع",
+      "PRICE": "السعر",
+      "ADVANCED_SEARCH": "بحث متقدم"
+    }
+  },
+  "GET_RECOMMENDATIONS": {
+    "TITLE": "احصل على توصيات للمنازل",
+    "SUBTITLE": "سجل الدخول للحصول على تجربة أكثر تخصيصًا.",
+    "SIGN_IN": "تسجيل الدخول"
+  },
+  "RECOMMENDATIONS": {
+    "TITLE": "توصيات لك",
+    "SUBTITLE": "قوائم مختارة بعناية لك! ابحث عن الإيجار المثالي الذي يناسب أسلوب حياتك",
+    "SEE_MORE": "شاهد المزيد"
+  },
+  "WHY_CHOOSE_US": {
+    "TITLE": "لماذا تختارنا؟",
+    "CARD_1": {
+      "TITLE": "ابحث عن منزلك المثالي",
+      "DESCRIPTION": "استكشف آلاف الشقق المؤجرة في مواقع مختلفة واختر مكانك المثالي بسهولة."
+    },
+    "CARD_2": {
+      "TITLE": "اعرض العقارات",
+      "DESCRIPTION": "اعرض عقارك في دقائق واجذب المستأجرين الجادين بسرعة وبدون جهد."
+    },
+    "CARD_3": {
+      "TITLE": "بحث ذكي",
+      "DESCRIPTION": "اكتشف الشقة المثالية التي تتناسب مع ميزانيتك وأسلوب حياتك باستخدام فلاتر متقدمة."
+    }
+  },
+  "TOP_PROPERTIES": {
+    "TITLE": "أفضل العقارات المؤجرة المتاحة",
+    "SUBTITLE": "ابحث عن الإيجار المثالي من بين أفضل العقارات المدرجة في مواقع متميزة"
+  },
+  "TESTIMONIALS": {
+    "TITLE": "ماذا يقول عملاؤنا",
+    "TESTIMONIAL_1": "كمستأجر، كنت أبحث عن منصة موثوقة بقوائم بأسعار معقولة. هذا الموقع جعل بحثي سريعًا وبدون متاعب!",
+    "TESTIMONIAL_2": "كمستأجر، كنت أبحث عن منصة موثوقة بقوائم بأسعار معقولة. هذا الموقع جعل بحثي سريعًا وبدون متاعب، وكانت التواصل مع الملاك سلسًا!",
+    "TESTIMONIAL_3": "عرضت شقتي هنا في دقائق، وخلال أسبوع وجدت مستأجرًا جادًا! أوصي بشدة بهذه المنصة للإيجار وعرض العقارات.",
+    "NAMES": {
+      "PERSON_1": "ليلى حسان",
+      "PERSON_2": "محمد سالم",
+      "PERSON_3": "أحمد زيدان"
+    },
+    "JOBS": {
+      "PERSON_1": "أستاذة جامعية",
+      "PERSON_2": "مهندس مساعد",
+      "PERSON_3": "مُقَاوِل"
+    }
+  },
+  "APP_SECTION": {
+    "TITLE": "ابقَ في المقدمة مع تطبيقنا",
+    "DESCRIPTION": "احصل على تنبيهات فورية حول القوائم الجديدة، العروض الحصرية، والتحديثات في الوقت الفعلي. ابحث عن إيجارك المثالي أو اعرض عقارك في أي وقت وأي مكان – كل ذلك بين يديك!",
+    "DOWNLOAD": "حمل الآن على"
+  },
+  "FOOTER": {
+    "BRAND_NAME": "بيرون",
+    "INFORMATION": {
+      "TITLE": "معلومات",
+      "MY_ACCOUNT": "حسابي",
+      "MY_CART": "سلة التسوق",
+      "MY_WISHLIST": "قائمة أمنياتي",
+      "CHECKOUT": "الدفع"
+    },
+    "SERVICE": {
+      "TITLE": "الخدمات",
+      "ABOUT_US": "من نحن",
+      "PRIVACY_POLICY": "سياسة الخصوصية",
+      "TERMS_CONDITIONS": "الشروط والأحكام"
+    },
+    "SUBSCRIBE": {
+      "TITLE": "اشترك",
+      "DESCRIPTION": "أدخل بريدك الإلكتروني أدناه لتكون أول من يعرف عن المجموعات الجديدة وإطلاق المنتجات.",
+      "EMAIL": "بريدك الإلكتروني"
+    },
+    "BOTTOM_RIGHTS": "© {year} بيرون، جميع الحقوق محفوظة"
+  },
+  "PROPERTY_FILTERS": {
+    "SORT_BY": "ترتيب حسب",
+    "MOST_RENTED": "الأكثر تأجيرًا",
+    "LARGEST_AREA": "أكبر مساحة",
+    "LOWER_AREA": "أقل مساحة",
+    "HIGHEST_PRICE": "أعلى سعر",
+    "SEARCH_PLACEHOLDER": "ابحث بعنوان، حي، أو مدينة"
+  },
+  "PROPERTY_SEARCH": {
+    "CHOOSE_PLACE": "اختر المكان",
+    "RENTAL_PERIOD": "فترة الإيجار",
+    "RENTAL_PERIOD_MONTHLY": "شهري",
+    "RENTAL_PERIOD_DAILY": "يومي",
+    "PRICE_RANGE": "نطاق السعر",
+    "PRICE_FROM": "السعر من",
+    "PRICE_TO": "السعر إلى",
+    "ROOMS_LABEL": "غرف",
+    "BATHROOMS_LABEL": "حمامات",
+    "FLOOR_LABEL": "الطابق",
+    "RATING_LABEL": "التقييم",
+    "FURNISHED": "مؤثث",
+    "FURNISHED_YES": "نعم",
+    "FURNISHED_NO": "لا",
+    "FURNISHED_PARTIALLY_FURNISHED": "مؤثث جزئيًا",
+    "ADDITIONAL_SERVICES": "خدمات إضافية",
+    "SERVICES": {
+      "ALL": "الكل",
+      "BALCONY": "بلكونة",
+      "WIFI": "واي-فاي",
+      "GARAGE": "جراج",
+      "SECURITY": "أمن",
+      "CENTRAL_HEATING": "تدفئة مركزية",
+      "ELEVATOR": "مصعد"
+    },
+    "PETS_ALLOWED": "السماح بالحيوانات الأليفة",
+    "BOOKING_PERIOD": "فترة الحجز",
+    "FROM": "من",
+    "TO": "إلى",
+    "SELECT_DATE_RANGE": "اختر نطاق التاريخ",
+    "DAYS_OF_WEEK": {
+      "SUN": "الأحد",
+      "MON": "الإثنين",
+      "TUE": "الثلاثاء",
+      "WED": "الأربعاء",
+      "THU": "الخميس",
+      "FRI": "الجمعة",
+      "SAT": "السبت"
+    },
+    "MONTHS": {
+      "JANUARY": "يناير",
+      "FEBRUARY": "فبراير",
+      "MARCH": "مارس",
+      "APRIL": "أبريل",
+      "MAY": "مايو",
+      "JUNE": "يونيو",
+      "JULY": "يوليو",
+      "AUGUST": "أغسطس",
+      "SEPTEMBER": "سبتمبر",
+      "OCTOBER": "أكتوبر",
+      "NOVEMBER": "نوفمبر",
+      "DECEMBER": "ديسمبر"
+    },
+    "SEARCH_PLACEHOLDER": "أدخل عنوانًا، حيًا، أو مدينة",
+    "CURRENCY": "EGP",
+    "ROOMS": "غرف",
+    "BATHROOMS": "حمامات",
+    "BED": "سرير",
+    "AREA": "مساحة",
+    "AREA_UNIT": "م²"
+  },
+  "FAVORITES": {
+    "NO_FAVORITES_TITLE": "لا توجد مفضلة بعد!",
+    "NO_FAVORITES_DESCRIPTION": "يبدو أنك لم تضف أي عقارات إلى مفضلتك. ابدأ الاستكشاف واحفظ العقارات التي تحبها للوصول إليها بسهولة",
+    "EXPLORE_NOW": "استكشف الآن",
+    "LATER": "فيما بعد.",
+    "BACK_TO_HOME": "العودة إلى الرئيسية"
+  },
+  "CONTACT_US": {
+    "EMAIL_US": "راسلنا عبر البريد الإلكتروني",
+    "EMAIL_ADDRESS": "person.gmail.com",
+    "CALL_US": "اتصل بنا",
+    "PHONE_NUMBER": "1119723643(20+)",
+    "SOCIAL_MEDIA": "وسائل التواصل الاجتماعي",
+    "FORM_TITLE": "ادخل بياناتك",
+    "FORM": {
+      "FULL_NAME_LABEL": "الاسم بالكامل",
+      "EMAIL_LABEL": "البريد الإلكتروني",
+      "PHONE_LABEL": "الهاتف",
+      "MESSAGE_LABEL": "الرسالة",
+      "SUBMIT_BUTTON": "إرسال الرسالة",
+      "SENDING": "جاري الإرسال...",
+      "SUCCESS_MESSAGE": "تم إرسال الرسالة بنجاح!",
+      "ERROR": {
+        "FULL_NAME_REQUIRED": "الاسم بالكامل مطلوب",
+        "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب",
+        "EMAIL_INVALID": "يرجى إدخال بريد إلكتروني صالح",
+        "PHONE_REQUIRED": "رقم الهاتف مطلوب",
+        "PHONE_PATTERN": "يرجى إدخال رقم هاتف مصري صالح",
+        "MESSAGE_REQUIRED": "الرسالة مطلوبة",
+        "MESSAGE_MAXLENGTH": "لا يمكن أن تتجاوز الرسالة 300 حرف",
+        "SUBMIT_FAILED": "فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى لاحقًا."
+      }
+    }
+  },
+  "ADVERTISE": {
+  "TITLE": "أضف إعلانك",
+  "POPUP": {
+    "TITLE": "الدفع مطلوب لنشر الإعلان",
+    "SUBTITLE": "ادفع الآن لنشر إعلانك",
+    "CANCEL_BUTTON": "إلغاء",
+    "PAY_BUTTON": "ادفع الآن"
+  },
+  "FORM": {
+    "TITLE_LABEL": "عنوان الإعلان",
+    "TITLE_PLACEHOLDER": "اكتب العنوان",
+    "PLACE_LABEL": "الموقع",
+    "PLACE_PLACEHOLDER": "ادخل الموقع",
+    "SPACE_LABEL": "المساحة (متر)",
+    "DETAILS_LABEL": "تفاصيل الإعلان/المميزات",
+    "PHONE_UPDATE_MESSAGE": "لتحديث رقم هاتفك، يرجى الذهاب إلى ملفك الشخصي",
+    "PHONE_LABEL": "رقم الهاتف",
+    "RENT_TYPE_LABEL": "نوع الإيجار",
+    "RENT_TYPE_PLACEHOLDER": "اختر نوع الإيجار",
+    "RENT_TYPE_DAILY": "يومي",
+    "RENT_TYPE_MONTHLY": "شهري",
+    "WHATSAPP_CHECKBOX": "هذا الهاتف يحتوي على واتساب",
+    "EMAIL_CHECKBOX": "تواصل معي عبر البريد الإلكتروني",
+    "MAP_LABEL": "اختر الموقع على الخريطة",
+    "MAP_INSTRUCTION": "أدخل عنوانًا مفصلاً (مثل: شارع عبد السلام عارف، المنصورة، الدقهلية، مصر) للحصول على نتائج أفضل.",
+    "MAP_SEARCH_PLACEHOLDER": "ابحث عن عنوان...",
+    "RESET_BUTTON": "إعادة تعيين الموقع",
+    "SELECTED_LOCATION": "الموقع المختار",
+    "PRICE_LABEL": "السعر (جنيه)",
+    "BATHROOMS_LABEL": "الحمامات",
+    "BATHROOMS_PLACEHOLDER": "اختر عدد الحمامات",
+    "ROOMS_LABEL": "الغرف",
+    "FEATURES_LABEL": "المميزات الإضافية",
+    "FEATURES_PLACEHOLDER": "اختر عدة مميزات",
+    "FEATURES": {
+      "FURNISHED": "مؤثث",
+      "PETS_ALLOWED": "السماح بالحيوانات الأليفة",
+      "SMOKING_ALLOWED": "السماح بالتدخين",
+      "GARAGE": "جراج",
+      "ELEVATOR": "مصعد",
+      "BALCONY": "بلكونة",
+      "HEATING": "تدفئة مركزية",
+      "WIFI": "واي-فاي",
+      "SECURITY": "أمن"
+    },
+    "AVAILABLE_FROM_LABEL": "متاح من",
+    "AVAILABLE_TO_LABEL": "متاح إلى",
+    "FLOOR_LABEL": "الطابق",
+    "MIN_BOOKING_DAYS_LABEL": "أدنى أيام الحجز",
+    "YOUTUBE_LABEL": "رابط يوتيوب",
+    "DRAG_PHOTO": "اسحب الصورة هنا",
+    "OR": "أو",
+    "CHOOSE_FILE": "اختر ملف",
+    "BROWSE_BUTTON": "استعراض",
+    "SELECTED_FILES": "الملفات المختارة",
+    "SUBMIT_BUTTON": "نشر",
+    "ERROR": {
+      "TITLE_REQUIRED": "عنوان الإعلان مطلوب",
+      "PLACE_REQUIRED": "الموقع مطلوب",
+      "PRICE_REQUIRED": "السعر مطلوب",
+      "AVAILABLE_FROM_REQUIRED": "تاريخ التوفر من مطلوب",
+      "AVAILABLE_TO_REQUIRED": "تاريخ التوفر إلى مطلوب",
+      "SEARCH_EMPTY": "يرجى إدخال عنوان للبحث",
+      "SEARCH_NOT_FOUND": "الموقع غير موجود. حاول مجددًا باستخدام عنوان أكثر تفصيلًا (مثل: شارع عبد السلام عارف، المنصورة، الدقهلية، مصر)",
+      "SEARCH_ERROR": "حدث خطأ أثناء البحث. يرجى التحقق من اتصالك بالإنترنت.",
+      "IMAGE_ERROR": "يُسمح فقط بملفات الصور (JPEG، PNG، GIF)."
+    }
+  }
+},
+"PROFILE": {
+  "TITLE": "ملفي الشخصي",
+  "AVATAR_ALT": "صورة المستخدم",
+  "GREETING": "مرحبًا،",
+  "SECTIONS": {
+    "ACCOUNT": "تفاصيل الحساب",
+    "ADVERTISE": "إعلاناتي",
+    "WISHLIST": "قائمة الرغبات",
+    "LOGOUT": "تسجيل الخروج"
+  },
+  "FORM": {
+    "FULL_NAME_LABEL": "الاسم الكامل",
+    "EMAIL_LABEL": "عنوان البريد الإلكتروني",
+    "PHONE_LABEL": "رقم الهاتف",
+    "OLD_PASSWORD_LABEL": "كلمة المرور الحالية",
+    "OLD_PASSWORD_PLACEHOLDER": "أدخل كلمة المرور الحالية",
+    "NEW_PASSWORD_LABEL": "كلمة المرور الجديدة",
+    "NEW_PASSWORD_PLACEHOLDER": "أدخل كلمة المرور الجديدة",
+    "CONFIRM_PASSWORD_LABEL": "تأكيد كلمة المرور الجديدة",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "تأكيد كلمة المرور الجديدة",
+    "SUBMIT_BUTTON": "حفظ التغييرات",
+    "ERROR": {
+      "FULL_NAME_REQUIRED": "الاسم الكامل مطلوب",
+      "FULL_NAME_MIN_LENGTH": "يجب أن يكون الاسم الكامل على الأقل 3 أحرف",
+      "FULL_NAME_MAX_LENGTH": "يجب ألا يتجاوز الاسم الكامل 30 حرفًا",
+      "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب",
+      "EMAIL_INVALID": "يرجى إدخال بريد إلكتروني صالح",
+      "PHONE_REQUIRED": "رقم الهاتف مطلوب",
+      "PHONE_PATTERN": "يرجى إدخال رقم هاتف مصري صالح (مثل 01Xxxxxxxxx)",
+      "OLD_PASSWORD_REQUIRED": "كلمة المرور الحالية مطلوبة",
+      "NEW_PASSWORD_REQUIRED": "كلمة المرور الجديدة مطلوبة",
+      "CONFIRM_PASSWORD_REQUIRED": "تأكيد كلمة المرور مطلوب",
+      "PASSWORDS_MISMATCH": "كلمتا المرور غير متطابقتين"
+    }
+  },
+  "ADVERTISE": {
+    "ADD_BUTTON": "إضافة",
+    "ADD_ADVERTISE_BUTTON": "أضف إعلان",
+    "TABS": {
+      "PUBLISH": "منشور",
+      "DELETING": "قيد الحذف",
+      "PENDING": "قيد الانتظار"
+    },
+    "NO_ADS_ALT": "لا يوجد إعلانات"
+  },
+  "WISHLIST": {
+    "NO_FAVORITES_ALT": "لا يوجد مفضلات",
+    "ROOMS": "غرف",
+    "BATHROOMS": "حمامات",
+    "BED": "سرير",
+    "AREA_UNIT": "م²"
+  },
+  "MODAL": {
+    "CLOSE_ALT": "إغلاق",
+    "TITLE": "هل أنت متأكد؟",
+    "CANCEL_BUTTON": "إلغاء",
+    "CONFIRM_BUTTON": "نعم، تسجيل الخروج"
+  }
+},
+"ABOUT": {
+  "US": {
+    "TITLE": "من نحن",
+    "DESCRIPTION": "نحن نقدم المعرفة لاتخاذ قراراتك العقارية الصحيحة بثقة!"
+  },
+  "MISSION": {
+    "TITLE": "مهمتنا",
+    "DESCRIPTION": "تمكين الأفراد من اتخاذ قرارات عقارية مدروسة تعزز من الازدهار."
+  },
+  "VISION": {
+    "TITLE": "رؤيتنا",
+    "DESCRIPTION": "أن نكون الشركة الأكثر قيمة وتأثيرًا ومرجعية في مجال التكنولوجيا العقارية بأسواقنا."
+  },
+  "STATS": {
+    "MONTHLY_LEADS": "الزوار الشهريون",
+    "MONTHLY_VISITORS": "الزيارات الشهرية",
+    "COMPOUNDS": "المجمعات",
+    "LISTED_PROPERTIES": "العقارات المدرجة",
+    "BROKERS": "الوسطاء",
+    "YEARS": "سنوات",
+    "IN_MARKET": "في سوق العقارات",
+    "EMPLOYEES": "الموظفون"
+  },
+  "AWARDS": {
+    "TITLE": "حائزون على جوائز من",
+    "WORLD_ALT": "المنتدى الاقتصادي العالمي",
+    "WORLD_CAPTION": "أفضل 100 شركة ناشئة في الشرق الأوسط وشمال إفريقيا",
+    "ALSAUD_ALT": "جائزة الsaud",
+    "ALSAUD_CAPTION": "جائزة الsaud لريادة الأعمال",
+    "FORBES_ALT": "فوربس",
+    "FORBES_CAPTION": "30 تحت 30 في الشرق الأوسط وشمال إفريقيا",
+    "HARVARD_ALT": "هارفارد",
+    "HARVARD_CAPTION": "أسرع 500 شركة في الشرق الأوسط وشمال إفريقيا",
+    "USPTO_ALT": "مكتب براءات الاختراع الأمريكي",
+    "USPTO_CAPTION": "براءة اختراع أمريكية للشراء عبر الإنترنت"
+  }
+},
+"TERMS": {
+  "TITLE": "شروط الاستخدام",
+  "EFFECTIVE_DATE": "تاريخ السريان: 22 أبريل 2025",
+  "WELCOME": "مرحبًا بك في",
+  "WELCOME_PLATFORM": "تحكم شروط الاستخدام هذه (\"الشروط\") وصولك واستخدامك للمنصة، بما في ذلك موقعنا الإلكتروني وتطبيق الهاتف المحمول (يُشار إليها مجتمعة باسم \"المنصة\").",
+  "WELCOME_AGREEMENT": "باستخدامك، فإنك توافق على الالتزام بهذه الشروط والتقيد بها.",
+  "DESCRIPTION": "هي منصة إلكترونية تربط مالكي العقارات بالمستأجرين المحتملين لأغراض التأجير فقط. يمكن للمستخدمين إدراج العقارات المتاحة للإيجار، البحث وتصفية القوائم، التواصل مع الملاك عبر البريد الإلكتروني أو واتساب، التفاعل مع روبوت الدردشة للمساعدة، تلقي الإشعارات، وترك التعليقات.",
+  "USER_TYPES": "هناك نوعان رئيسيان من المستخدمين: مالكو العقارات، الذين يمكنهم إدراج العقارات (بمقابل رسوم)، والمستأجرون، الذين يمكنهم تصفح القوائم والتواصل مع مالكي العقارات. يوافق المستخدمون على تقديم معلومات دقيقة، وتجنب الأنشطة غير القانونية أو المسيئة، وعدم نشر قوائم مضللة.",
+  "FEES": "قد تفرض رسومًا على إدراج العقارات، والتي سيتم الإفصاح عنها أثناء العملية وهي غير قابلة للاسترداد بشكل عام.",
+  "FEES_RESPONSIBILITY": "المستخدمون مسؤولون عن المحتوى الذي ينشرونه، وتحتفظ بالحق في إزالة القوائم المزيفة أو غير المناسبة.",
+  "COMMUNICATION": "يمكن للمستخدمين التواصل عبر البريد الإلكتروني أو واتساب أو روبوت الدردشة الخاص بنا.",
+  "COMMUNICATION_DISCLAIMER": "غير مسؤولة عن الاتفاقيات التي تتم خارج المنصة أو المعاملات غير المتصلة.",
+  "REVIEWS": "ميزة التقييم والمراجعة تتيح للمستخدمين مشاركة تجاربهم، ولكن",
+  "REVIEWS_PRIVACY": "قد تقوم بمراجعة التعليقات غير المناسبة. جميع البيانات الشخصية محمية وفقًا لسياسة الخصوصية الخاصة بنا.",
+  "INTELLECTUAL_PROPERTY": "جميع المحتويات والتقنيات المستخدمة في محمية بحقوق الملكية الفكرية. الاستخدام أو التوزيع غير المصرح به محظور.",
+  "TERMINATION": "قد نعلق أو ننهي الوصول إلى المنصة في حالة انتهاك الشروط.",
+  "GOVERNING_LAW": "تخضع هذه الشروط لقوانين جمهورية مصر العربية. يجوز لنا تعديل هذه الشروط في أي وقت مع إشعار مناسب.",
+  "CONTACT_INFO": "للاستفسارات، يرجى التواصل معنا على:"
+},
+"CHAT": {
+  "TITLE": "مساعد بيرون",
+  "LOGO_ALT": "شعار بيرون",
+  "SEND_ALT": "إرسال الرسالة",
+  "INPUT_PLACEHOLDER": "اسأل عن أي شيء",
+  "SMART_SERVICES": {
+    "TITLE": "خدمات المساعد الذكي",
+    "SEARCH": "ابحث بسهولة عن شقق للإيجار",
+    "INQUIRE": "استفسر عن الأسعار والشروط بسهولة",
+    "EXAMPLE": "هذه مجرد أمثلة على ما يمكنني فعله لمساعدتك"
+  }
+},
+"NOTIFICATIONS": {
+  "DELETE": "حذف",
+  "NO_NOTIFICATIONS": "لا توجد إشعارات متاحة."
+},
+"NOT_FOUND": {
+  "TITLE": " 404",
+  "SUBTITLE": "غير موجود",
+  "DESCRIPTION": "عذرًا! الصفحة التي تبحث عنها غير موجودة. ارجع إلى الصفحة الرئيسية أو تحقق من العنوان وجرب مرة أخرى",
+  "BACK_BUTTON": "العودة إلى الرئيسية",
+  "IMAGE_ALT": "صورة توضيحية لخطأ 404"
+},"PROPERTY_DETAILS": {
+  "MAIN_IMAGE_ALT": "صورة العقار الرئيسية",
+  "SLIDER_IMAGE_ALT": "صورة العقار",
+  "TABS": {
+    "DESCRIPTIONS": "الوصف",
+    "ADDITIONAL_INFO": "معلومات إضافية",
+    "REVIEWS": "التقييمات"
+  },
+  "REVIEWS_COUNT": "تقييمات",
+  "ROOMS": "غرف",
+  "BATHROOMS": "حمامات",
+  "BED": "سرير",
+  "AREA": "مساحة",
+  "ICON_ROOM_ALT": "أيقونة الغرفة",
+  "ICON_BED_ALT": "أيقونة السرير",
+  "ICON_AREA_ALT": "أيقونة المساحة",
+  "CURRENCY": "EGP",
+  "APARTMENT_DESCRIPTION": "وصف الشقة",
+  "DESCRIPTION_DEFAULT": {
+    "TYPE": "النوع: شقة حديثة تقع في",
+    "BEDROOMS": "تتكون من {{bedrooms}} غرف نوم",
+    "KITCHEN": "مطبخ",
+    "BATHROOM": "{{count}} حمام",
+    "BALCONY": "وبها بلكونة",
+    "FLOOR": "الشقة تقع في الطابق {{floor}}",
+    "ELEVATOR": "في مبنى مزود بمصعد",
+    "NO_ELEVATOR": "في مبنى",
+    "AREA": "المساحة: {{area}} متر مربع.",
+    "FURNISHED": "التشطيب: مفروشة بالكامل.",
+    "UNFURNISHED": "التشطيب: غير مفروشة."
+  },
+  "APARTMENT_FEATURES": "مميزات الشقة",
+  "FEATURES": {
+    "SECURITY": "أمن وحراسة على مدار 24 ساعة.",
+    "INTERNET": "تشمل وسائل ترفيه مثل الواي فاي.",
+    "ELEVATOR": "مزودة بمصعد.",
+    "PETS": "صديقة للحيوانات الأليفة."
+  },
+  "REVIEWS_TITLE": "آراء العملاء",
+  "REVIEWS_POSTED": "تم النشر",
+  "ADD_REVIEW": "أضف تقييمك",
+  "YOUR_RATING": "تقييمك",
+  "REVIEW_PLACEHOLDER": "أدخل تقييمك",
+  "REVIEW_REQUIRED": "التعليق مطلوب.",
+  "SUBMIT_REVIEW": "إرسال",
+  "ADDITIONAL_AMENITIES": "وسائل راحة إضافية",
+  "AMENITIES": {
+    "ELEVATOR": "مزودة بمصعد",
+    "PETS": "صديقة للحيوانات الأليفة",
+    "SMOKING": "التدخين مسموح",
+    "WIFI": "واي فاي متاح"
+  },
+  "AVAILABILITY": "التوفر",
+  "AVAILABILITY_TEXT": "متاح من {{from}} إلى {{to}}. الحد الأدنى للحجز: {{days}} أيام.",
+  "LOCATION": "الموقع"
+}
+}

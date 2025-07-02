@@ -1,0 +1,129 @@
+.login-container {
+    padding: 0;
+    background-image: url('../../../assets/imgs/LoginBg.png');
+     background-size: cover;
+      background-position: center;
+      margin-top: 0px;
+  }
+  .color{
+    background-color: rgba(0, 0, 0, 0.658);
+   z-index: 2;
+}
+.icon-btn {
+    width: 35px;
+    cursor: pointer;
+  }
+  .brand-name {
+    color: white;
+    font-size: 40px; 
+    font-weight: 500;
+
+  }
+  
+  .login-form {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .btn-success {
+    background-color: var(--main-color) !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  
+  .btn-success:hover {
+    background-color: var(--main-color) !important;
+  }
+  
+  .form-check-input:checked {
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+  }
+  
+  .social-icon {
+    font-size: 18px;
+    color: #333;
+  }
+  
+ 
+
+
+  .input-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  
+  [dir="ltr"] .input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #999;
+    transition: 0.3s;
+    z-index: 5;
+  }
+  [dir="rtl"] .input-group label {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #999;
+    transition: 0.3s;
+    z-index: 5;
+  }
+  .input-group input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+  }
+  
+  .input-group input:focus + label,
+  .input-group input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none !important;
+    color: #818181;
+  }
+  .custom-checkbox {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    border: 1px solid #198754; 
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+[dir="rtl"]   .custom-checkbox {
+  margin-left: 1px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; 
+  border: 1px solid #198754; 
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+.custom-checkbox:checked {
+    background-color: #198754; 
+    border: 1px solid #198754;
+    outline: none !important;
+}

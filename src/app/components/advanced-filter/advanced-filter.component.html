@@ -1,0 +1,240 @@
+<section class="container section" style="margin-top: 150px; margin-bottom: 50px;">
+  <div class="row gx-5">
+    <!-- Side Left -->
+    <div class="col-md-5" style="margin-top: 83px;">
+      <!-- Dropdown -->
+      <div class="dropdown position-relative mb-4">
+        <input type="text" class="form-control shadow-none custom-dropdown dropdown-toggle" 
+               [placeholder]="'PROPERTY_SEARCH.CHOOSE_PLACE' | translate"
+               readonly [(ngModel)]="selectedPlace" (click)="toggleDropdown()" [attr.aria-expanded]="isDropdownOpen"
+               style="border:1px solid #0F7757;">
+        <i class="fas fa-chevron-down dropdown-icon position-absolute"></i>
+        <ul class="dropdown-menu w-100" [ngClass]="{'show': isDropdownOpen}">
+          <li *ngFor="let place of places">
+            <a class="dropdown-item" (click)="selectPlace(place); $event.preventDefault()">{{ place }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="filter-box p-3">
+        <!-- Rental Period -->
+        <div class="rental-period" style="margin-top: 25px;">
+          <h6>{{ 'PROPERTY_SEARCH.RENTAL_PERIOD' | translate }}</h6>
+          <div class="btn-group gap-4 mb-3">
+            <button class="btn"
+              [ngClass]="{'btn-outline-secondary': rentalPeriod !== 'Monthly', 'active btn-success': rentalPeriod === 'Monthly'}"
+              (click)="setRentalPeriod('Monthly')">{{ 'PROPERTY_SEARCH.RENTAL_PERIOD_MONTHLY' | translate }}</button>
+            <button class="btn"
+              [ngClass]="{'btn-outline-secondary': rentalPeriod !== 'Daily', 'active btn-success': rentalPeriod === 'Daily'}"
+              (click)="setRentalPeriod('Daily')">{{ 'PROPERTY_SEARCH.RENTAL_PERIOD_DAILY' | translate }}</button>
+          </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Price Range -->
+        <div class="price-slide">
+          <h6 class="mt-3">{{ 'PROPERTY_SEARCH.PRICE_RANGE' | translate }}</h6>
+        
+          <!-- Slider -->
+          <div class="slider-container">
+            <div class="price-slider" [ngStyle]="getSliderStyles()"></div>
+          </div>
+        
+          <div class="range-input position-relative">
+            <input type="range" class="min-range" min="0" max="10000" step="1" [(ngModel)]="minPrice"
+              (input)="updatePriceSlider()">
+            <input type="range" class="max-range" min="0" max="10000" step="1" [(ngModel)]="maxPrice"
+              (input)="updatePriceSlider()">
+          </div>
+          <div class="price-input-container mt-3">
+            <div class="price-input">
+              <div class="price-field">
+                <span>{{ 'PROPERTY_SEARCH.PRICE_FROM' | translate }}</span>
+                <input type="number" class="min-input" [(ngModel)]="minPrice" (input)="updateRangeFromInput()">
+              </div>
+              <div class="price-field">
+                <span>{{ 'PROPERTY_SEARCH.PRICE_TO' | translate }}</span>
+                <input type="number" class="max-input" [(ngModel)]="maxPrice" (input)="updateRangeFromInput()">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Number Inputs (Rooms, Bathrooms, Floor, Rating) -->
+        <div class="mb-3 number-input" *ngFor="let counter of counters">
+          <label class="form-label mb-0">{{ 'PROPERTY_SEARCH.' + counter.label.toUpperCase() + '_LABEL' | translate }}</label>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-outline-secondary decrement rounded-circle fw-bold"
+              (click)="decrement(counter)">−</button>
+            <input type="text" class="form-control rounded-5 text-center" style="background-color: #fafafa;"
+              [value]="counter.value" readonly>
+            <button class="btn btn-outline-secondary increment rounded-circle fw-bold"
+              (click)="increment(counter)">+</button>
+          </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Furnished -->
+        <h6>{{ 'PROPERTY_SEARCH.FURNISHED' | translate }}</h6>
+        <div class="btn-group w-100 gap-3">
+          <button class="btn" *ngFor="let option of furnishedOptions"
+            [ngClass]="{'btn-success active': selectedFurnishedOptions.includes(option), 'btn-outline-secondary': !selectedFurnishedOptions.includes(option)}"
+            (click)="setFurnished(option)">{{ 'PROPERTY_SEARCH.FURNISHED_' + option.toUpperCase() | translate }}</button>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Additional Services -->
+        <h6 class="my-3">{{ 'PROPERTY_SEARCH.ADDITIONAL_SERVICES' | translate }}</h6>
+        <div class="services-container">
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn" *ngFor="let service of services"
+            [ngClass]="{'btn-success active': selectedServices.includes(service), 'btn-outline-secondary': !selectedServices.includes(service)}"
+            (click)="selectService(service)">
+            {{ 'PROPERTY_SEARCH.SERVICES.' + service.toUpperCase().replace(' ', '_') | translate }}
+          </button>
+          </div>
+        </div>
+        <div class="separator"></div>
+
+        <!-- Pets Allowed -->
+        <div class="mb-3">
+          <h6 class="mb-0">{{ 'PROPERTY_SEARCH.PETS_ALLOWED' | translate }}</h6>
+          <div class="form-check form-switch">
+            <input class="form-check-input shadow-none" type="checkbox" id="petsAllowed" [(ngModel)]="petsAllowed"
+              (change)="onPetsToggle()">
+          </div>
+        </div>
+        <div class="separator"></div>
+
+        <!-- Booking Period (Date Picker) -->
+        <div class="booking-period">
+          <h6>{{ 'PROPERTY_SEARCH.BOOKING_PERIOD' | translate }}</h6>
+          <div class="date-picker">
+            <!-- الفترة المختارة فوق التقويم -->
+            <div class="selected-range mb-2">
+              <span *ngIf="selectedDateFrom">
+                <span class="fw-bold">{{ 'PROPERTY_SEARCH.FROM' | translate }}</span> {{ formatDate(selectedDateFrom) }}
+              </span>
+              <span *ngIf="selectedDateFrom && selectedDateTo"> - </span>
+              <span *ngIf="selectedDateTo">
+                <span class="fw-bold">{{ 'PROPERTY_SEARCH.TO' | translate }}</span> {{ formatDate(selectedDateTo) }}
+              </span>
+              <span *ngIf="!selectedDateFrom && !selectedDateTo">
+                {{ 'PROPERTY_SEARCH.SELECT_DATE_RANGE' | translate }}
+              </span>
+            </div>
+        
+            <!-- التقويم -->
+            <div class="date-picker-content w-75 d-block m-auto">
+              <div class="date-picker-header">
+                <button (click)="changeMonth('prev')"><</button>
+                <span>{{ 'PROPERTY_SEARCH.MONTHS.' + selectedMonth.toUpperCase() | translate }} {{ selectedYear }}</span>
+                <button (click)="changeMonth('next')">></button>
+              </div>
+              <div class="calendar-grid">
+                <div class="day-header" *ngFor="let day of daysOfWeek">
+                  {{ 'PROPERTY_SEARCH.DAYS_OF_WEEK.' + day | translate }}
+                </div>
+                <div class="day" *ngFor="let day of getDaysInMonth(selectedYear, selectedMonth)"
+                  [ngClass]="{
+                    'selected': isDayInRange(day) || isDaySelected(day),
+                    'disabled': day === null || isDayDisabled(day)
+                  }"
+                  (click)="selectDay(day)">
+                  {{ day ? day : '' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side Right (Property Cards) -->
+    <div class="col-md-7">
+      <section class="rental-section">
+        <div class="search-section mb-4 d-flex ms-2">
+          <div class="search-bar d-flex align-items-center mt-3 border col-md-6 px-3 py-2"
+            style="background-color: white; border-radius: 10px;">
+            <input type="text" class="form-control border-0  shadow-none"
+              [placeholder]="'PROPERTY_SEARCH.SEARCH_PLACEHOLDER' | translate"
+              [(ngModel)]="searchQuery" (input)="applyFilters()">
+            <button class="btn p-0"><i class="fas fa-search" style="font-size: 25px;"></i></button>
+          </div>
+        </div>
+        <div class="container position-relative">
+          <div>
+            <div class="row g-4">
+              <div *ngFor="let item of filteredProperties" class="col-md-6 col-lg-6">
+                <div class="card rental-card" [routerLink]="['/property', item.propertyId]">
+                  <div class="position-relative">
+                    <div class="container">
+                      <img [src]="item.images[0]" class="card-img-top"
+                        style="border-radius: 16px; margin-top: 8px;" [alt]="item.location">
+                    </div>
+                    <div *ngIf="isLoggedIn==true" class="position-absolute m-4 top-0 end-0">
+                      <button *ngIf="!wishList.includes(item.propertyId)" class="btn text-success" (click)="addToWichList(item.propertyId); $event.stopPropagation()">
+                        <i class="fa-regular fa-heart fs-1"></i>
+                      </button>
+                      <button *ngIf="wishList.includes(item.propertyId)" class="btn text-success" (click)="removeProuWichList(item.propertyId); $event.stopPropagation()">
+                        <i class="fa-solid fa-heart fs-1"></i>
+                      </button>
+                    </div>
+                    <div class="position-absolute bottom-0 m-4 end-0">
+                      <a class="rounded-2 text-decoration-none text-white fw-bold d-flex justify-content-center align-items-center"
+                        style="width: 110px; height: 40px; background-color: var(--main-color);">
+                        EGP {{item.price}}
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title my-2">{{item.title}}</h5>
+                    <div class="d-flex align-items-center">
+                      <ng-container *ngFor="let num of [1,2,3,4,5]">
+                        <i class="fa-star me-1" [ngClass]="{
+                          'fa-solid rating-color': num <= item.averageRating, 
+                          'fa-regular text-secondary': num > item.averageRating
+                        }"></i>
+                      </ng-container>
+                      <span class="ms-2">{{ item.averageRating }}</span>
+                    </div>
+                    <p class="text-muted">{{item.location}}</p>
+                    <div class="row g-1 align-items-center justify-content-between">
+                      <div class="col-md-12 col-sm-12 col-12">
+                        <div class="row g-0">
+                          <div class="col-md-6 col-sm-6 col-6">
+                            <img src="./assets/imgs/Icon-room.png" alt="">
+                            <span class="fw-normal fs-6" style="color: #BFBFBF;"> {{item.bedrooms}} Rooms</span>
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-6">
+                            <i class="ms-2 fa-solid fa-bath fa-flip-horizontal" style="color: #BFBFBF;"></i>
+                            <span class="fw-normal" style="color: #BFBFBF;"> {{item.bathrooms}} Bathrooms</span>
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-6">
+                            <span class="fw-normal" style="color: #BFBFBF;">
+                              <img src="./assets/imgs/ic-bed.png" alt=""> {{item.bedrooms}} Bed
+                            </span>
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-6">
+                            <span class="fw-normal" style="color: #BFBFBF;">
+                              <img src="./assets/imgs/icon_width.png" alt=""> {{item.area}}m² Area
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

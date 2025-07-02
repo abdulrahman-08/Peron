@@ -1,0 +1,285 @@
+<div class="col-md-11 mx-auto rounded-4" style="margin-top: 140px; background-color: #88C1AF1A;" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <!-- Main Image -->
+  <div class="container p-5">
+    <div class="main-image mb-4">
+      <img [src]="property.images[0] || './assets/imgs/default-image.png'" class="img-fluid rounded-3" [alt]="'PROPERTY_DETAILS.MAIN_IMAGE_ALT' | translate" style="width: 100%; height: 400px; object-fit: cover;" />
+      <button class="btn text-success position-absolute top-0 end-0 m-3" (click)="toggleFavorite()">
+        <i class="fa-heart fs-1" [ngClass]="{'fa-solid': isFavorite || wishList.includes(property.propertyId), 'fa-regular': !isFavorite && !wishList.includes(property.propertyId)}"></i>
+      </button>
+    </div>
+
+    <!-- Image Carousel -->
+    <div class="custom-slider mb-4 position-relative">
+      <div class="slider-container" [style.transform]="'translateX(-' + currentTranslate + '%)'">
+        <!-- Duplicate last 4 images at the beginning for infinite loop -->
+        <div class="slider-item" *ngFor="let image of lastFourImages; let i = index" [ngClass]="{'selected': image === property.images[0]}" (click)="setMainImage(image)">
+          <img [src]="image" class="d-block w-100 rounded" [alt]="'PROPERTY_DETAILS.SLIDER_IMAGE_ALT' | translate" style="height: 150px; object-fit: cover;" />
+        </div>
+        <!-- Original images -->
+        <div class="slider-item" *ngFor="let image of property.images; let i = index" [ngClass]="{'selected': image === property.images[0]}" (click)="setMainImage(image)">
+          <img [src]="image" class="d-block w-100 rounded" [alt]="'PROPERTY_DETAILS.SLIDER_IMAGE_ALT' | translate" style="height: 150px; object-fit: cover;" />
+        </div>
+        <!-- Duplicate first 4 images at the end for infinite loop -->
+        <div class="slider-item" *ngFor="let image of firstFourImages; let i = index" [ngClass]="{'selected': image === property.images[0]}" (click)="setMainImage(image)">
+          <img [src]="image" class="d-block w-100 rounded" [alt]="'PROPERTY_DETAILS.SLIDER_IMAGE_ALT' | translate" style="height: 150px; object-fit: cover;" />
+        </div>
+      </div>
+      <button class="slider-btn prev-btn" *ngIf="property.images.length >= 5" (click)="prevSlide()">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="slider-btn next-btn" *ngIf="property.images.length >= 5" (click)="nextSlide()">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="container" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <ul class="nav nav-tabs mb-4 col-md-6 mt-5">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'descriptions'" (click)="changeTab('descriptions')">{{ 'PROPERTY_DETAILS.TABS.DESCRIPTIONS' | translate }}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'additional-info'" (click)="changeTab('additional-info')">{{ 'PROPERTY_DETAILS.TABS.ADDITIONAL_INFO' | translate }}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'reviews'" (click)="changeTab('reviews')">{{ 'PROPERTY_DETAILS.TABS.REVIEWS' | translate }}</a>
+    </li>
+  </ul>
+
+  <!-- Descriptions Section -->
+  <div *ngIf="activeTab === 'descriptions'" class="col-md-8">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+      <div>
+        <h2 class="mb-2">{{ property.title }}</h2>
+        <p class="text-muted mb-2">{{ property.location }}</p>
+        <div class="d-flex align-items-center mb-3">
+          <div class="d-flex align-items-center">
+            <ng-container *ngFor="let num of [1,2,3,4,5]">
+              <i class="fa-star me-1" [ngClass]="{
+                'fa-solid rating-color': num <= property.averageRating, 
+                'fa-regular text-secondary': num > property.averageRating
+              }"></i>
+            </ng-container>
+            <span class="ms-1">{{ property.averageRating }}</span>
+          </div>
+          <span class="ms-2">({{ review.length }} {{ 'PROPERTY_DETAILS.REVIEWS_COUNT' | translate }})</span>
+        </div>
+        <div class="d-flex gap-3 mb-3">
+          <div>
+            <img src="./assets/imgs/Icon-room.png" [alt]="'PROPERTY_DETAILS.ICON_ROOM_ALT' | translate">
+            <span class="fw-normal fs-6" style="color: #818181;"> {{property.bedrooms}} {{ 'PROPERTY_DETAILS.ROOMS' | translate }}</span>
+          </div>
+          <div>
+            <i class="ms-2 fa-solid fa-bath fa-flip-horizontal" style="color: #818181;"></i>
+            <span class="fw-normal" style="color: #818181;"> {{property.bathrooms}} {{ 'PROPERTY_DETAILS.BATHROOMS' | translate }}</span>
+          </div>
+          <div>
+            <span class="fw-normal" style="color: #818181;">
+              <img src="./assets/imgs/ic-bed.png" [alt]="'PROPERTY_DETAILS.ICON_BED_ALT' | translate"> {{property.bedrooms}} {{ 'PROPERTY_DETAILS.BED' | translate }}
+            </span>
+          </div>
+          <div>
+            <span class="fw-normal" style="color: #818181;">
+              <img src="./assets/imgs/icon_width.png" [alt]="'PROPERTY_DETAILS.ICON_AREA_ALT' | translate"> {{property.area}}m² {{ 'PROPERTY_DETAILS.AREA' | translate }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <h3 class="text-black fw-bold">{{ 'PROPERTY_DETAILS.CURRENCY' | translate }} {{ property.price }}</h3>
+    </div>
+
+    <!-- Apartment Description -->
+    <div *ngIf="property.description || property.hasBalcony || property.hasElevator || property.isFurnished">
+      <h4 class="mb-3">{{ 'PROPERTY_DETAILS.APARTMENT_DESCRIPTION' | translate }}</h4>
+      <p *ngIf="!property.description" class="mb-4" style="color: #818181;">
+        {{ 'PROPERTY_DETAILS.DESCRIPTION_DEFAULT.TYPE' | translate }} {{property.location}}.
+        {{ 'PROPERTY_DETAILS.DESCRIPTION_DEFAULT.BEDROOMS' | translate: { bedrooms: property.bedrooms } }}, {{ 'PROPERTY_DETAILS.DESCRIPTION_DEFAULT.KITCHEN' | translate }}, {{property.bathrooms}} {{ 'PROPERTY_DETAILS.DESCRIPTION_DEFAULT.BATHROOM' | translate: { count: property.bathrooms } }}
+        {{property.hasBalcony ? ('PROPERTY_DETAILS.DESCRIPTION_DEFAULT.BALCONY' | translate) : ''}}.
+        {{ 'PROPERTY_DETAILS.DESCRIPTION_DEFAULT.FLOOR' | translate: { floor: property.floor } }}
+        {{property.hasElevator ? ('PROPERTY_DETAILS.DESCRIPTION_DEFAULT.ELEVATOR' | translate) : ('PROPERTY_DETAILS.DESCRIPTION_DEFAULT.NO_ELEVATOR' | translate)}}.
+        {{ 'PROPERTY_DETAILS.DESCRIPTION_DEFAULT.AREA' | translate: { area: property.area } }}
+        {{property.isFurnished ? ('PROPERTY_DETAILS.DESCRIPTION_DEFAULT.FURNISHED' | translate) : ('PROPERTY_DETAILS.DESCRIPTION_DEFAULT.UNFURNISHED' | translate)}}
+      </p>
+      <p *ngIf="property.description" class="mb-4" style="color: #818181;">{{property.description}}</p>
+    </div>
+
+    <!-- Apartment Features -->
+    <div *ngIf="property.hasSecurity || property.hasInternet || property.hasElevator || property.allowsPets">
+      <h4 class="mb-3">{{ 'PROPERTY_DETAILS.APARTMENT_FEATURES' | translate }}</h4>
+      <ul class="list-unstyled" style="color: #818181;">
+        <li class="mb-2" *ngIf="property.hasSecurity"><i class="fa-solid fa-check text-success me-2"></i>{{ 'PROPERTY_DETAILS.FEATURES.SECURITY' | translate }}</li>
+        <li class="mb-2" *ngIf="property.hasInternet"><i class="fa-solid fa-check text-success me-2"></i>{{ 'PROPERTY_DETAILS.FEATURES.INTERNET' | translate }}</li>
+        <li class="mb-2" *ngIf="property.hasElevator"><i class="fa-solid fa-check text-success me-2"></i>{{ 'PROPERTY_DETAILS.FEATURES.ELEVATOR' | translate }}</li>
+        <li class="mb-2" *ngIf="property.allowsPets"><i class="fa-solid fa-check text-success me-2"></i>{{ 'PROPERTY_DETAILS.FEATURES.PETS' | translate }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Reviews Section -->
+  <div *ngIf="activeTab === 'reviews'">
+    <h3 class="mb-4">{{ 'PROPERTY_DETAILS.REVIEWS_TITLE' | translate }}</h3>
+    <div *ngFor="let review of review || []" class="review-item mb-4 pb-3 border-bottom">
+      <div class="d-flex align-items-center mb-2">
+        <div>
+          <h6 class="mb-0">{{ review.userName }}</h6>
+          <div class="d-flex align-items-center">
+            <ng-container *ngFor="let num of [1,2,3,4,5]">
+              <i class="fa-star me-1" [ngClass]="{
+                'fa-solid rating-color': num <= review.stars, 
+                'fa-regular text-secondary': num > review.stars
+              }"></i>
+            </ng-container>
+            <span class="ms-1">({{ review.stars }})</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-muted fw-bold">{{ review.comment }}</p>
+      <span><span class="text-muted">{{ 'PROPERTY_DETAILS.REVIEWS_POSTED' | translate }}</span><span class="fw-normal"> {{review.timeAgo}}</span></span>
+    </div>
+    <div class="mt-5">
+      <h4 class="mb-3">{{ 'PROPERTY_DETAILS.ADD_REVIEW' | translate }}</h4>
+      <form (ngSubmit)="addReview()" [formGroup]="reviewForm">
+        <div class="mb-3">
+          <label class="form-label fs-5 text-muted">{{ 'PROPERTY_DETAILS.YOUR_RATING' | translate }}</label>
+          <div class="d-flex align-items-center">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+              <i class="fa-star fa-2x me-2" [ngClass]="{'fa-solid rating-color': star <= rating, 'fa-regular text-muted': star > rating}" (click)="setRating(star)"></i>
+            </ng-container>
+          </div>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control shadow-none" rows="4" [placeholder]="'PROPERTY_DETAILS.REVIEW_PLACEHOLDER' | translate" formControlName="comment"></textarea>
+          <div *ngIf="reviewForm.get('comment')?.touched && reviewForm.get('comment')?.invalid" class="text-danger">
+            <small *ngIf="reviewForm.get('comment')?.errors?.['required']">{{ 'PROPERTY_DETAILS.REVIEW_REQUIRED' | translate }}</small>
+          </div>
+        </div>
+        <button type="submit" class="btn col-md-3 btn-success" [disabled]="reviewForm.invalid || rating === 0">{{ 'PROPERTY_DETAILS.SUBMIT_REVIEW' | translate }}</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Additional Information Section -->
+  <div *ngIf="activeTab === 'additional-info'" class="mb-4">
+    <h3 class="mb-4" style="color: var(--main-color);">{{ 'PROPERTY_DETAILS.APARTMENT_FEATURES' | translate }}</h3>
+    <div class="d-flex gap-3 mb-3">
+      <div>
+        <img src="./assets/imgs/Icon-room.png" [alt]="'PROPERTY_DETAILS.ICON_ROOM_ALT' | translate">
+        <span class="fw-normal fs-6" style="color: #818181;"> {{property.bedrooms}} {{ 'PROPERTY_DETAILS.ROOMS' | translate }}</span>
+      </div>
+      <div>
+        <i class="ms-2 fa-solid fa-bath fa-flip-horizontal" style="color: #818181;"></i>
+        <span class="fw-normal" style="color: #818181;"> {{property.bathrooms}} {{ 'PROPERTY_DETAILS.BATHROOMS' | translate }}</span>
+      </div>
+      <div>
+        <span class="fw-normal" style="color: #818181;">
+          <img src="./assets/imgs/ic-bed.png" [alt]="'PROPERTY_DETAILS.ICON_BED_ALT' | translate"> {{property.bedrooms}} {{ 'PROPERTY_DETAILS.BED' | translate }}
+        </span>
+      </div>
+      <div>
+        <span class="fw-normal" style="color: #818181;">
+          <img src="./assets/imgs/icon_width.png" [alt]="'PROPERTY_DETAILS.ICON_AREA_ALT' | translate"> {{property.area}}m² {{ 'PROPERTY_DETAILS.AREA' | translate }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Additional Amenities -->
+    <div *ngIf="property.hasElevator || property.allowsPets || property.smokingAllowed || property.hasInternet">
+      <h3 class="mb-4" style="color: var(--main-color);">{{ 'PROPERTY_DETAILS.ADDITIONAL_AMENITIES' | translate }}</h3>
+      <ul class="list-unstyled d-flex flex-wrap gap-3 mb-4">
+        <li *ngIf="property.hasElevator"><i class="fa-solid fa-elevator me-2"></i><span class="text-muted">{{ 'PROPERTY_DETAILS.AMENITIES.ELEVATOR' | translate }}</span></li>
+        <li *ngIf="property.allowsPets"><i class="fa-solid fa-paw me-2"></i><span class="text-muted">{{ 'PROPERTY_DETAILS.AMENITIES.PETS' | translate }}</span></li>
+        <li *ngIf="property.smokingAllowed"><i class="fa-solid fa-smoking me-2"></i><span class="text-muted">{{ 'PROPERTY_DETAILS.AMENITIES.SMOKING' | translate }}</span></li>
+        <li *ngIf="property.hasInternet"><i class="fa-solid fa-wifi me-2"></i><span class="text-muted">{{ 'PROPERTY_DETAILS.AMENITIES.WIFI' | translate }}</span></li>
+      </ul>
+    </div>
+
+    <h3 class="mb-4" style="color: var(--main-color);">{{ 'PROPERTY_DETAILS.AVAILABILITY' | translate }}</h3>
+    <p class="text-muted mb-3">
+      {{ 'PROPERTY_DETAILS.AVAILABILITY_TEXT' | translate: { from: (property.availableFrom | date:'mediumDate'), to: (property.availableTo | date:'mediumDate'), days: property.minBookingDays } }}
+    </p>
+
+    <h3 class="mb-4" style="color: var(--main-color);">{{ 'PROPERTY_DETAILS.LOCATION' | translate }}</h3>
+    <p class="text-muted mb-3">{{ property.location }}</p>
+    <div class="map-container">
+      <google-map
+        height="200px"
+        width="100%"
+        [center]="center"
+        [zoom]="zoom">
+        <map-marker
+          [position]="markerPosition">
+        </map-marker>
+      </google-map>
+    </div>
+
+    <div>
+      <h3 class="text-start my-4 fw-medium" style="color: var(--main-color);">{{ 'RECOMMENDATIONS.TITLE' | translate }}</h3>
+      <!-- Filtered Properties -->
+      <div class="row g-4">
+        <div *ngFor="let item of propertys.slice(0,3)" class="col-md-6 col-lg-4">
+          <div class="card rental-card" [routerLink]="['/property', item.propertyId]">
+            <div class="position-relative">
+              <div class="container">
+                <img [src]="item.images[0]" class="card-img-top"
+                  style="border-radius: 16px; margin-top: 8px;" [alt]="item.location">
+              </div>
+              <div *ngIf="isLoggedIn==true" class="position-absolute m-4 top-0 end-0">
+                <button *ngIf="!wishList.includes(item.propertyId)" class="btn text-success" (click)="addToWichList(item.propertyId); $event.stopPropagation()">
+                  <i class="fa-regular fa-heart fs-1"></i>
+                </button>
+                <button *ngIf="wishList.includes(item.propertyId)" class="btn text-success" (click)="removeProuWichList(item.propertyId); $event.stopPropagation()">
+                  <i class="fa-solid fa-heart fs-1"></i>
+                </button>
+              </div>
+              <div class="position-absolute bottom-0 m-4 end-0">
+                <a class="rounded-2 text-decoration-none text-white fw-bold d-flex justify-content-center align-items-center"
+                  style="width: 110px; height: 40px; background-color: var(--main-color);">
+                  {{ 'PROPERTY_DETAILS.CURRENCY' | translate }} {{item.price}}
+                </a>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title my-2">{{item.title}}</h5>
+              <div class="d-flex align-items-center">
+                <ng-container *ngFor="let num of [1,2,3,4,5]">
+                  <i class="fa-star me-1" [ngClass]="{
+                    'fa-solid rating-color': num <= item.averageRating, 
+                    'fa-regular text-secondary': num > item.averageRating
+                  }"></i>
+                </ng-container>
+                <span class="ms-2">{{ item.averageRating }}</span>
+              </div>
+              <p class="text-muted">{{item.location}}</p>
+              <div class="row g-1 align-items-center justify-content-between">
+                <div class="col-md-12 col-sm-12 col-12">
+                  <div class="row g-0">
+                    <div class="col-md-6 col-sm-6 col-6">
+                      <img src="./assets/imgs/Icon-room.png" [alt]="'PROPERTY_DETAILS.ICON_ROOM_ALT' | translate">
+                      <span class="fw-normal fs-6" style="color: #BFBFBF;"> {{item.bedrooms}} {{ 'PROPERTY_DETAILS.ROOMS' | translate }}</span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                      <i class="ms-2 fa-solid fa-bath fa-flip-horizontal" style="color: #BFBFBF;"></i>
+                      <span class="fw-normal" style="color: #BFBFBF;"> {{item.bathrooms}} {{ 'PROPERTY_DETAILS.BATHROOMS' | translate }}</span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                      <span class="fw-normal" style="color: #BFBFBF;">
+                        <img src="./assets/imgs/ic-bed.png" [alt]="'PROPERTY_DETAILS.ICON_BED_ALT' | translate"> {{item.bedrooms}} {{ 'PROPERTY_DETAILS.BED' | translate }}
+                      </span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                      <span class="fw-normal" style="color: #BFBFBF;">
+                        <img src="./assets/imgs/icon_width.png" [alt]="'PROPERTY_DETAILS.ICON_AREA_ALT' | translate"> {{item.area}}m² {{ 'PROPERTY_DETAILS.AREA' | translate }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,352 @@
+<!-- Hero Section -->
+<section class="hero-section container text-white d-flex justify-content-between">
+  <div class="overlay"></div>
+  <div class="container position-relative">
+    <div id="hero1">
+      <div class="col-md-8 text-start mx-auto">
+        <h1 class="fw-bold mt-3">{{ 'HERO.TITLE' | translate }}</h1>
+        <p class="mt-2 fw-medium">{{ 'HERO.SUBTITLE' | translate }}</p>
+      </div>
+    </div>
+    <div *ngIf="isdataloaded" class="search-bar mx-auto p-4 rounded shadow-sm mb-5">
+      <div class="row gx-2 gy-2 align-items-center">
+        <div class="col-md-3">
+          <input type="text" class="form-control shadow-none p-2" [placeholder]="'HERO.SEARCH.KEYWORD' | translate"
+            [(ngModel)]="searchQuery" (input)="applyFilters()">
+        </div>
+        <div class="col-md-2">
+          <select class="form-select shadow-none p-2" [(ngModel)]="selectedLocation" (change)="applyFilters()">
+            <option value="" >{{ 'HERO.SEARCH.LOCATION' | translate }}</option>
+            <option *ngFor="let place of places" [value]="place">{{ place }}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select p-2" [(ngModel)]="selectedPriceRange" (change)="applyFilters()">
+            <option value="" >{{ 'HERO.SEARCH.PRICE' | translate }}</option>
+            <option *ngFor="let range of priceRanges" [value]="range.label">{{ range.label }}</option>
+          </select>
+        </div>
+        <div class="col-md-2"
+          style="width: 253px; display: flex; justify-content: space-between; margin-right: auto; margin-left: auto;">
+          <div>
+            <button routerLink="/advanced-filter" class="btn btn-outline-success border-1 p-2" style="width: 200px;">
+              {{ 'HERO.SEARCH.ADVANCED_SEARCH' | translate }}
+              <i class="fa-solid ms-2 fs-6 my-0 p-0"
+                [ngClass]="currentLang === 'en' ? 'fa-chevron-right' : 'fa-chevron-left'"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Conditional Section: Show "Get home recommendations" before login, "Recommendations for You" after login -->
+<section class="rental-section py-5">
+<div class="container">
+  <!-- Before Login: Get Home Recommendations -->
+ <div *ngIf="!isLoggedIn" class="row align-items-center">
+  <div class="col-md-6">
+    <span class="fw-medium title-text" >{{ 'GET_RECOMMENDATIONS.TITLE' | translate }}</span>
+    <p class="text-muted mt-3 fs-4">{{ 'GET_RECOMMENDATIONS.SUBTITLE' | translate }}</p>
+    <button class="btn signin-btn ms-1 my-3" routerLink="/auth/login">{{ 'GET_RECOMMENDATIONS.SIGN_IN' | translate }}</button>
+  </div>
+  <div class="col-md-6 text-center">
+    <img src="./assets/imgs/homeph.png" alt="Building" class="img-fluid rounded">
+  </div>   
+</div>
+
+ <!-- After Login: Recommendations for You -->
+<div *ngIf="isLoggedIn">
+  <h2 class="text-center fw-bold">{{ 'RECOMMENDATIONS.TITLE' | translate }}</h2>
+  <p class="text-center text-muted mt-3 mb-5">{{ 'RECOMMENDATIONS.SUBTITLE' | translate }}</p>
+
+  <!-- Filtered Properties -->
+  <div class="row g-4">
+    <div *ngFor="let item of filteredProperties.slice(0,6)" class="col-md-6 col-lg-4">
+      <div class="card rental-card" [routerLink]="['/property', item.propertyId]">
+        <div class="position-relative">
+          <div class="container">
+            <img [src]="item.images[0]" class="card-img-top"
+              style="border-radius: 16px; margin-top: 8px;" [alt]="item.location">
+          </div>
+          <div *ngIf="isLoggedIn==true" class="position-absolute m-4 top-0 end-0">
+            <button *ngIf="!wishList.includes(item.propertyId)" class="btn text-success" (click)="addToWichList(item.propertyId); $event.stopPropagation()">
+              <i class="fa-regular fa-heart fs-1"></i>
+            </button>
+            <button *ngIf="wishList.includes(item.propertyId)" class="btn text-success" (click)="removeProuWichList(item.propertyId); $event.stopPropagation()">
+              <i class="fa-solid fa-heart fs-1"></i>
+            </button>
+          </div>
+          <div class="position-absolute bottom-0 m-4 end-0">
+            <a class="rounded-2 text-decoration-none text-white fw-bold d-flex justify-content-center align-items-center"
+              style="width: 110px; height: 40px; background-color: var(--main-color);">
+              EGP {{item.price}}
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title my-2">{{item.title}}</h5>
+          <div class="d-flex align-items-center">
+            <ng-container *ngFor="let num of [1,2,3,4,5]">
+              <i class="fa-star me-1" [ngClass]="{
+                'fa-solid rating-color': num <= item.averageRating, 
+                'fa-regular text-secondary': num > item.averageRating
+              }"></i>
+            </ng-container>
+            <span class="ms-2">{{ item.averageRating }}</span>
+          </div>
+          <p class="text-muted">{{item.location}}</p>
+          <div class="row g-1 align-items-center justify-content-between">
+            <div class="col-md-12 col-sm-12 col-12">
+              <div class="row g-0">
+                <div class="col-md-6 col-sm-6 col-6">
+                  <img src="./assets/imgs/Icon-room.png" alt="">
+                  <span class="fw-normal fs-6" style="color: #BFBFBF;"> {{item.bedrooms}} Rooms</span>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <i class="ms-2 fa-solid fa-bath fa-flip-horizontal" style="color: #BFBFBF;"></i>
+                  <span class="fw-normal" style="color: #BFBFBF;"> {{item.bathrooms}} Bathrooms</span>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <span class="fw-normal" style="color: #BFBFBF;">
+                    <img src="./assets/imgs/ic-bed.png" alt=""> {{item.bedrooms}} Bed
+                  </span>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <span class="fw-normal" style="color: #BFBFBF;">
+                    <img src="./assets/imgs/icon_width.png" alt=""> {{item.area}}m² Area
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+    <a routerLink="/property" class="text-decoration-underline fa-hand-pointer text-main fw-medium fs-3">
+      {{ 'RECOMMENDATIONS.SEE_MORE' | translate }}
+    </a>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Rest of the sections -->
+<section class="bg-light py-5">
+<div class="container">
+  <h2 class="fw-medium text-start fs-1 mb-5">{{ 'WHY_CHOOSE_US.TITLE' | translate }}</h2>
+  <div class="row g-3 text-center">
+    <div class="col-md-4">
+      <div class="card border-0 p-3">
+        <img src="./assets/imgs/ideal.png" alt="Find Your Ideal Home" class="img-fluid">
+        <h5 class="fw-bold mt-3" style="color: #474646;">{{ 'WHY_CHOOSE_US.CARD_1.TITLE' | translate }}</h5>
+        <p>{{ 'WHY_CHOOSE_US.CARD_1.DESCRIPTION' | translate }}</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 p-3">
+        <img src="./assets/imgs/advertise.png" alt="Advertise Properties" class="img-fluid">
+        <h5 class="fw-bold mt-3">{{ 'WHY_CHOOSE_US.CARD_2.TITLE' | translate }}</h5>
+        <p>{{ 'WHY_CHOOSE_US.CARD_2.DESCRIPTION' | translate }}</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 p-3">
+        <img src="./assets/imgs/search.png" alt="Smart Search" class="img-fluid">
+        <h5 class="fw-bold">{{ 'WHY_CHOOSE_US.CARD_3.TITLE' | translate }}</h5>
+        <p>{{ 'WHY_CHOOSE_US.CARD_3.DESCRIPTION' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="rental-section py-5">
+<div class="container">
+  <h2 class="text-center fw-bold">{{ 'TOP_PROPERTIES.TITLE' | translate }}</h2>
+  <p class="text-center text-muted mt-3 mb-5">{{ 'TOP_PROPERTIES.SUBTITLE' | translate }}</p>
+  <div class="row g-4">
+    <div *ngFor="let item of propertys.slice(0,6)" class="col-md-6 col-lg-4">
+      <div class="card rental-card" [routerLink]="['/property', item.propertyId]">
+        <div class="position-relative">
+          <div class="container">
+            <img [src]="item.images[0]" class="card-img-top"
+              style="border-radius: 16px; margin-top: 8px;" [alt]="item.location">
+          </div>
+          <div *ngIf="isLoggedIn==true" class="position-absolute m-4 top-0 end-0">
+            <button *ngIf="!wishList.includes(item.propertyId)" class="btn text-success" (click)="addToWichList(item.propertyId); $event.stopPropagation()">
+              <i class="fa-regular fa-heart fs-1"></i>
+            </button>
+            <button *ngIf="wishList.includes(item.propertyId)" class="btn text-success" (click)="removeProuWichList(item.propertyId); $event.stopPropagation()">
+              <i class="fa-solid fa-heart fs-1"></i>
+            </button>
+          </div>
+          <div class="position-absolute bottom-0 m-4 end-0">
+            <a class="rounded-2 text-decoration-none text-white fw-bold d-flex justify-content-center align-items-center"
+              style="width: 110px; height: 40px; background-color: var(--main-color);">
+              EGP {{item.price}}
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title my-2">{{item.title}}</h5>
+          <div class="d-flex align-items-center">
+            <ng-container *ngFor="let num of [1,2,3,4,5]">
+              <i class="fa-star me-1" [ngClass]="{
+                'fa-solid rating-color': num <= item.averageRating, 
+                'fa-regular text-secondary': num > item.averageRating
+              }"></i>
+            </ng-container>
+            <span class="ms-2">{{ item.averageRating }}</span>
+          </div>
+          <p class="text-muted">{{item.location}}</p>
+          <div class="row g-1 align-items-center justify-content-between">
+            <div class="col-md-12 col-sm-12 col-12">
+              <div class="row g-0">
+                <div class="col-md-6 col-sm-6 col-6">
+                  <img src="./assets/imgs/Icon-room.png" alt="">
+                  <span class="fw-normal fs-6" style="color: #BFBFBF;"> {{item.bedrooms}} Rooms</span>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <i class="ms-2 fa-solid fa-bath fa-flip-horizontal" style="color: #BFBFBF;"></i>
+                  <span class="fw-normal" style="color: #BFBFBF;"> {{item.bathrooms}} Bathrooms</span>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <span class="fw-normal" style="color: #BFBFBF;">
+                    <img src="./assets/imgs/ic-bed.png" alt=""> {{item.bedrooms}} Bed
+                  </span>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <span class="fw-normal" style="color: #BFBFBF;">
+                    <img src="./assets/imgs/icon_width.png" alt=""> {{item.area}}m² Area
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center my-3">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn rounded-2 me-2" [class.btn-success]="currentPage === 1"
+        [class.btn-outline-secondary]="currentPage !== 1" (click)="goToPage(1)">
+        1
+      </button>
+      <button type="button" class="btn rounded-2" [class.btn-success]="currentPage === 2"
+        [class.btn-outline-secondary]="currentPage !== 2" (click)="goToPage(2)">
+        2
+      </button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials py-5">
+<div class="container">
+  <h2 class="fw-medium text-start fs-1 mb-5">{{ 'TESTIMONIALS.TITLE' | translate }}</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4 align-items-stretch">
+    <div class="col">
+      <div class="card h-100 border-0 p-4" style="border-radius: 10px;">
+        <div class="card-body">
+          <div class="mb-3">
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+          </div>
+          <p class="mb-4" style="font-style: italic;">{{ 'TESTIMONIALS.TESTIMONIAL_1' | translate }}</p>
+          <div class="d-flex align-items-center">
+            <img src="./assets/imgs/laila.png" [alt]="'TESTIMONIALS.NAMES.PERSON_1' | translate" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+            <div>
+              <h6 class="mb-0">{{ 'TESTIMONIALS.NAMES.PERSON_1' | translate }}</h6>
+              <small class="text-muted">{{ 'TESTIMONIALS.JOBS.PERSON_1' | translate }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 border-0 p-4" style="border-radius: 10px;">
+        <div class="card-body">
+          <div class="mb-3">
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+          </div>
+          <p class="mb-4" style="font-style: italic;">{{ 'TESTIMONIALS.TESTIMONIAL_2' | translate }}</p>
+          <div class="d-flex align-items-center">
+            <img src="./assets/imgs/mohamed.png" [alt]="'TESTIMONIALS.NAMES.PERSON_2' | translate" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+            <div>
+              <h6 class="mb-0">{{ 'TESTIMONIALS.NAMES.PERSON_2' | translate }}</h6>
+              <small class="text-muted">{{ 'TESTIMONIALS.JOBS.PERSON_2' | translate }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 border-0 p-4" style="border-radius: 10px;">
+        <div class="card-body">
+          <div class="mb-3">
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+            <i class="fas fa-star text-warning me-1"></i>
+          </div>
+          <p class="mb-4" style="font-style: italic;">{{ 'TESTIMONIALS.TESTIMONIAL_3' | translate }}</p>
+          <div class="d-flex align-items-center">
+            <img src="./assets/imgs/ahmed.png" [alt]="'TESTIMONIALS.NAMES.PERSON_3' | translate" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+            <div>
+              <h6 class="mb-0">{{ 'TESTIMONIALS.NAMES.PERSON_3' | translate }}</h6>
+              <small class="text-muted">{{ 'TESTIMONIALS.JOBS.PERSON_3' | translate }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Stay Ahead with Our App Section-->
+<section>
+<div class="container py-3">
+  <div class="row justify-content-center mt-5">
+    <div class="col-12">
+      <h1 class="text-center fw-bold fs-1">{{ 'APP_SECTION.TITLE' | translate }}</h1>
+    </div>
+  </div>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-md-5 text-start mb-4 mb-md-0">
+      <p class="mb-4" style="color: #818181;">{{ 'APP_SECTION.DESCRIPTION' | translate }}</p>
+      <div class="d-flex flex-column flex-lg-row align-items-center">
+        <div class="me-lg-3 mb-2 mb-lg-0">
+          <p style="font-weight: 500;" class="mb-0 fs-3">
+            <i class="fa-solid fa-download me-2"></i>{{ 'APP_SECTION.DOWNLOAD' | translate }}
+          </p>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <a href="#" class="mb-2">
+            <img src="./assets/imgs/app.png" alt="Download on the App Store" style="width: 150px;">
+          </a>
+          <a href="#" class="mb-2">
+            <img src="./assets/imgs/play.png" alt="Get it on Google Play" style="width: 150px;">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="./assets/imgs/twophone.jpg" alt="Two Phones" class="img-fluid" style="max-height: 500px;">
+    </div>
+  </div>
+</div>
+</section>

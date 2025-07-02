@@ -1,0 +1,35 @@
+.no-favorites-section {
+    min-height: 80vh; /* ارتفاع الصفحة عشان تكون في المنتصف */
+  }
+  
+  .no-favorites-section h2 {
+    font-size: 2.5rem; /* حجم العنوان */
+    color: #333; /* لون العنوان */
+    font-weight: 600;
+  }
+  
+  .no-favorites-section p {
+    font-size: 1.1rem; /* حجم الوصف */
+    color: #666; /* لون الوصف */
+    max-width: 500px; /* الحد الأقصى لعرض الوصف */
+    margin: 0 auto; /* توسيط الوصف */
+  }
+  
+  .no-favorites-section .btn-success {
+    background-color: var(--main-color); /* لون الزر الأخضر */
+    border: none;
+    border-radius: 8px; /* تقويس الحواف */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .no-favorites-section .btn-success:hover {
+    background-color: #157a47; /* لون الزر لما نعمل hover */
+  }
+  
+  /* ضبط الاتجاه في العربية */
+  html[lang="ar"] .no-favorites-section {
+    direction: rtl;
+  }

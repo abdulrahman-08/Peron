@@ -1,0 +1,275 @@
+<div class="container" style="margin-top: 150px;" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <div class="row">
+    <!-- Sidebar on the left -->
+    <h2 class="mb-3">{{ 'PROFILE.TITLE' | translate }}</h2>
+
+    <div class="col-md-3 col-lg-3 border sidebar">
+      <div class="user-info d-flex align-items-center mb-4">
+        <img [src]="profileImage" class="rounded-circle me-2" alt="{{ 'PROFILE.AVATAR_ALT' | translate }}" />
+        <div>
+          <p class="mb-0">{{ 'PROFILE.GREETING' | translate }}</p>
+          <h5 class="mb-0">{{ userName }}</h5>
+        </div>
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active': currentSection === 'account'}" (click)="changeSection('account')">
+            <i class="fa-regular fa-user me-2"></i> {{ 'PROFILE.SECTIONS.ACCOUNT' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active': currentSection === 'advertise'}" (click)="changeSection('advertise')">
+            <i class="fa-solid fa-bullhorn me-2"></i> {{ 'PROFILE.SECTIONS.ADVERTISE' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active': currentSection === 'wishlist'}" (click)="changeSection('wishlist')">
+            <i class="fa-regular fa-heart me-2"></i> {{ 'PROFILE.SECTIONS.WISHLIST' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutModal">
+            <i class="fa-solid fa-sign-out-alt me-2"></i> {{ 'PROFILE.SECTIONS.LOGOUT' | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main content on the right -->
+    <div class="col-md-9 col-lg-9 main-content">
+      <!-- Account Details Section -->
+      <div [hidden]="currentSection != 'account'">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="text-center mb-4 position-relative">
+              <img [src]="profileImage" class="rounded-circle" alt="{{ 'PROFILE.AVATAR_ALT' | translate }}" style="width: 100px; height: 100px;" />
+              <label for="profileImageInput" class="position-absolute bottom-0 camera-icon">
+                <i class="fa-solid fa-circle-plus"></i>
+              </label>
+              <input type="file" id="profileImageInput" class="d-none" (change)="onImageChange($event)" accept="image/*" formControlName="profileImage" />
+            </div>
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+              <div class="row g-3">
+                <div class="mb-3 col-md-6">
+                  <label for="fullName" class="form-label">{{ 'PROFILE.FORM.FULL_NAME_LABEL' | translate }}</label>
+                  <input type="text" class="form-control shadow-none" id="fullName" formControlName="fullName" />
+                  <div *ngIf="profileForm.get('fullName')?.invalid && profileForm.get('fullName')?.touched" class="text-danger">
+                    <small *ngIf="profileForm.get('fullName')?.errors?.['required']">{{ 'PROFILE.FORM.ERROR.FULL_NAME_REQUIRED' | translate }}</small>
+                    <small *ngIf="profileForm.get('fullName')?.errors?.['minlength']">{{ 'PROFILE.FORM.ERROR.FULL_NAME_MIN_LENGTH' | translate }}</small>
+                    <small *ngIf="profileForm.get('fullName')?.errors?.['maxlength']">{{ 'PROFILE.FORM.ERROR.FULL_NAME_MAX_LENGTH' | translate }}</small>
+                  </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="email" class="form-label">{{ 'PROFILE.FORM.EMAIL_LABEL' | translate }}</label>
+                  <input type="email" class="form-control shadow-none" id="email" formControlName="email" />
+                  <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched" class="text-danger">
+                    <small *ngIf="profileForm.get('email')?.errors?.['required']">{{ 'PROFILE.FORM.ERROR.EMAIL_REQUIRED' | translate }}</small>
+                    <small *ngIf="profileForm.get('email')?.errors?.['email']">{{ 'PROFILE.FORM.ERROR.EMAIL_INVALID' | translate }}</small>
+                  </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="phoneNumber" class="form-label">{{ 'PROFILE.FORM.PHONE_LABEL' | translate }}</label>
+                  <input type="text" class="form-control shadow-none" id="phoneNumber" formControlName="phoneNumber" />
+                  <div *ngIf="profileForm.get('phoneNumber')?.invalid && profileForm.get('phoneNumber')?.touched" class="text-danger">
+                    <small *ngIf="profileForm.get('phoneNumber')?.errors?.['required']">{{ 'PROFILE.FORM.ERROR.PHONE_REQUIRED' | translate }}</small>
+                    <small *ngIf="profileForm.get('phoneNumber')?.errors?.['pattern']">{{ 'PROFILE.FORM.ERROR.PHONE_PATTERN' | translate }}</small>
+                  </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="oldPassword" class="form-label">{{ 'PROFILE.FORM.OLD_PASSWORD_LABEL' | translate }}</label>
+                  <input type="password" class="form-control shadow-none" id="oldPassword" formControlName="oldPassword" placeholder="{{ 'PROFILE.FORM.OLD_PASSWORD_PLACEHOLDER' | translate }}" />
+                  <div *ngIf="profileForm.get('oldPassword')?.invalid && profileForm.get('oldPassword')?.touched" class="text-danger">
+                    <small *ngIf="profileForm.get('oldPassword')?.errors?.['required']">{{ 'PROFILE.FORM.ERROR.OLD_PASSWORD_REQUIRED' | translate }}</small>
+                  </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="password" class="form-label">{{ 'PROFILE.FORM.NEW_PASSWORD_LABEL' | translate }}</label>
+                  <input type="password" class="form-control shadow-none" id="password" formControlName="password" placeholder="{{ 'PROFILE.FORM.NEW_PASSWORD_PLACEHOLDER' | translate }}" />
+                  <div *ngIf="profileForm.get('password')?.invalid && profileForm.get('password')?.touched" class="text-danger">
+                    <small *ngIf="profileForm.get('password')?.errors?.['required']">{{ 'PROFILE.FORM.ERROR.NEW_PASSWORD_REQUIRED' | translate }}</small>
+                  </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="confirmPassword" class="form-label">{{ 'PROFILE.FORM.CONFIRM_PASSWORD_LABEL' | translate }}</label>
+                  <input type="password" class="form-control shadow-none" id="confirmPassword" formControlName="confirmPassword" placeholder="{{ 'PROFILE.FORM.CONFIRM_PASSWORD_PLACEHOLDER' | translate }}" />
+                  <div *ngIf="profileForm.get('confirmPassword')?.invalid && profileForm.get('confirmPassword')?.touched" class="text-danger">
+                    <small *ngIf="profileForm.get('confirmPassword')?.errors?.['required']">{{ 'PROFILE.FORM.ERROR.CONFIRM_PASSWORD_REQUIRED' | translate }}</small>
+                  </div>
+                  <div *ngIf="profileForm.errors?.['passwordMismatch'] && profileForm.get('confirmPassword')?.touched" class="text-danger">
+                    <small>{{ 'PROFILE.FORM.ERROR.PASSWORDS_MISMATCH' | translate }}</small>
+                  </div>
+                </div>
+              </div>
+              <button [disabled]="!isFormChanged" type="submit" class="btn btn-success mx-auto d-block w-50">
+                {{ 'PROFILE.FORM.SUBMIT_BUTTON' | translate }}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- My Advertise Section -->
+      <div [hidden]="currentSection !== 'advertise'" class="advertise-section">
+        <div class="row justify-content-around">
+          <div class="col-md-5 offset-md-3">
+            <div class="search-container">
+              <input type="text" class="form-control search-input focus-ring-success focus-ring" placeholder="{{ 'PROPERTY_SEARCH.SEARCH_PLACEHOLDER' | translate }}">
+              <i class="fas fa-search search-icon"></i>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button class="btn add-btn btn-success my-3" (click)="addAdvertise()">
+              <span class="icon-wrapper me-1">
+                <i class="fa-solid fa-house-medical"></i>
+              </span>
+              {{ 'PROFILE.ADVERTISE.ADD_BUTTON' | translate }}
+            </button>
+          </div>
+        </div>
+
+        <ul class="nav nav-tabs mt-3 w-75 mx-auto mb-4 d-flex justify-content-around align-items-center">
+          <li class="nav-item position-relative">
+            <a class="nav-link" [class.active]="activeTab === 'publish'" (click)="changeTab('publish')">{{ 'PROFILE.ADVERTISE.TABS.PUBLISH' | translate }}(0)</a>
+          </li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" [class.active]="activeTab === 'deleting'" (click)="changeTab('deleting')">{{ 'PROFILE.ADVERTISE.TABS.DELETING' | translate }}(0)</a>
+          </li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" [class.active]="activeTab === 'pending'" (click)="changeTab('pending')">{{ 'PROFILE.ADVERTISE.TABS.PENDING' | translate }}(0)</a>
+          </li>
+        </ul>
+
+        <div class="text-center no-ads">
+          <img src="./assets/imgs/favnoitem.png" alt="{{ 'PROFILE.ADVERTISE.NO_ADS_ALT' | translate }}" class="img-fluid mb-3" style="max-width: 150px;">
+        </div>
+
+        <div class="text-center mt-4">
+          <button class="btn fw-normal px-5 btn-success" (click)="addAdvertise()">{{ 'PROFILE.ADVERTISE.ADD_ADVERTISE_BUTTON' | translate }}</button>
+        </div>
+      </div>
+
+      <!-- My Wishlists Section -->
+      <div *ngIf="currentSection === 'wishlist'" style="min-height: 50vh;">
+        <div *ngIf="cartItem.length == 0">
+          <div class="text-center no-ads">
+            <img src="./assets/imgs/favnoitem.png" alt="{{ 'PROFILE.WISHLIST.NO_FAVORITES_ALT' | translate }}" class="img-fluid mx-5" style="max-width: 150px;">
+            <h2 class="h1">{{ 'FAVORITES.NO_FAVORITES_TITLE' | translate }}</h2>
+          </div>
+        </div>
+        <div *ngIf="cartItem.length >= 1">
+          <div class="position-relative">
+            <!-- Search Field -->
+            <div class="search-section mb-4 justify-content-center d-flex ms-2">
+              <div class="search-bar d-flex align-items-center border col-md-4 px-3 py-2" style="background-color: white; border-radius: 10px;">
+                <input type="text" class="form-control border-0 shadow-none" [placeholder]="'PROPERTY_SEARCH.SEARCH_PLACEHOLDER' | translate" [(ngModel)]="searchValue" (input)="filterWishlist()">
+                <button class="btn p-0"><i class="fas fa-search" style="font-size: 25px;"></i></button>
+              </div>
+            </div>
+
+            <!-- Display Filtered Properties -->
+            <div class="row g-4">
+              <div *ngFor="let item of filteredCartItems" class="col-md-6 col-lg-4">
+                <div class="card rental-card" [routerLink]="['/property', item.propertyId]">
+                  <div class="position-relative">
+                    <div class="container">
+                      <img [src]="item.images[0]" class="card-img-top"
+                        style="border-radius: 16px; margin-top: 8px;" [alt]="item.location">
+                    </div>
+                    <div class="position-absolute m-4 top-0 end-0">
+                      <button class="btn text-success" (click)="removeProuWichList(item.propertyId); $event.stopPropagation()">
+                        <i class="fa-solid fa-heart fs-1"></i>
+                      </button>
+                    </div>
+                    <div class="position-absolute bottom-0 m-4 end-0">
+                      <a class="rounded-2 text-decoration-none text-white fw-bold d-flex justify-content-center align-items-center"
+                        style="width: 110px; height: 40px; background-color: var(--main-color);">
+                        EGP {{item.price}}
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title my-2">{{item.title}}</h5>
+                    <div class="d-flex align-items-center">
+                      <ng-container *ngFor="let num of [1,2,3,4,5]">
+                        <i class="fa-star me-1" [ngClass]="{
+                          'fa-solid rating-color': num <= item.averageRating,
+                          'fa-regular text-secondary': num > item.averageRating
+                        }"></i>
+                      </ng-container>
+                      <span class="ms-2">{{ item.averageRating }}</span>
+                    </div>
+                    <p class="text-muted">{{item.location}}</p>
+                    <div class="row g-1 align-items-center justify-content-between">
+                      <div class="col-md-12 col-sm-12 col-12">
+                        <div class="row g-0">
+                          <div class="col-md-6 col-sm-6 col-6">
+                            <img src="./assets/imgs/Icon-room.png" alt="">
+                            <span class="fw-normal fs-6" style="color: #BFBFBF;"> {{item.bedrooms}} {{ 'PROFILE.WISHLIST.ROOMS' | translate }}</span>
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-6">
+                            <i class="ms-2 fa-solid fa-bath fa-flip-horizontal" style="color: #BFBFBF;"></i>
+                            <span class="fw-normal" style="color: #BFBFBF;"> {{item.bathrooms}} {{ 'PROFILE.WISHLIST.BATHROOMS' | translate }}</span>
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-6">
+                            <span class="fw-normal" style="color: #BFBFBF;">
+                              <img src="./assets/imgs/ic-bed.png" alt=""> {{item.bedrooms}} {{ 'PROFILE.WISHLIST.BED' | translate }}
+                            </span>
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-6">
+                            <span class="fw-normal" style="color: #BFBFBF;">
+                              <img src="./assets/imgs/icon_width.png" alt=""> {{item.area}}{{ 'PROFILE.WISHLIST.AREA_UNIT' | translate }}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- If no filtered items -->
+            <div *ngIf="filteredCartItems.length === 0" class="text-center mt-5">
+              <div class="mb-4">
+                <i class="fa-regular fa-file-lines fa-5x text-muted"></i>
+              </div>
+              <h2 class="fw-bold mb-3">{{ 'FAVORITES.NO_FAVORITES_TITLE' | translate }}</h2>
+              <p class="text-muted mb-4">
+                {{ 'FAVORITES.NO_FAVORITES_DESCRIPTION' | translate }}
+                <span class="text-success fw-medium">{{ 'FAVORITES.EXPLORE_NOW' | translate }}</span>
+                {{ 'FAVORITES.LATER' | translate }}
+              </p>
+              <button class="btn btn-success px-4 py-2" routerLink="/">
+                {{ 'FAVORITES.BACK_TO_HOME' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saved Cards Section -->
+      <!-- (To be implemented if needed) -->
+    </div>
+  </div>
+
+  <!-- Logout Confirmation Modal -->
+  <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 position-relative">
+          <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></a>
+        </div>
+        <div class="modal-body text-center">
+          <div class="success-circle">
+            <i class="fa-solid fa-exclamation"></i>
+          </div>
+          <h5 class="modal-title" id="logoutModalLabel">{{ 'PROFILE.MODAL.TITLE' | translate }}</h5>
+        </div>
+        <div class="modal-footer border-0 justify-content-center gap-2">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">{{ 'PROFILE.MODAL.CANCEL_BUTTON' | translate }}</button>
+          <button type="button" class="btn btn-success" (click)="logout()">{{ 'PROFILE.MODAL.CONFIRM_BUTTON' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

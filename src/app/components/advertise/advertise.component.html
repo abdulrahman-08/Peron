@@ -1,0 +1,273 @@
+<div class="container mt-custom" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <div class="main-card">
+    <div class="p-4">
+      <h2 class="text-center mb-4" style="color: var(--main-color); font-size: 32px;">
+        {{ 'ADVERTISE.TITLE' | translate }}
+      </h2>
+      <form [formGroup]="advertisementForm" (ngSubmit)="onSubmit()">
+        <!-- Advertise Title -->
+        <div class="form-group mb-3">
+          <label class="form-label">{{ 'ADVERTISE.FORM.TITLE_LABEL' | translate }}</label>
+          <input type="text" class="form-control custom-input no-shadow" formControlName="Title" placeholder="{{ 'ADVERTISE.FORM.TITLE_PLACEHOLDER' | translate }}">
+          <div *ngIf="advertisementForm.get('Title')?.touched && advertisementForm.get('Title')?.invalid" class="error-message">
+            {{ 'ADVERTISE.FORM.ERROR.TITLE_REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <!-- Place -->
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="form-label">{{ 'ADVERTISE.FORM.PLACE_LABEL' | translate }}</label>
+            <input type="text" class="form-control custom-input no-shadow" formControlName="Location" placeholder="{{ 'ADVERTISE.FORM.PLACE_PLACEHOLDER' | translate }}">
+
+            <div *ngIf="advertisementForm.get('Location')?.touched && advertisementForm.get('Location')?.invalid" class="error-message">
+              {{ 'ADVERTISE.FORM.ERROR.PLACE_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <!-- Space (m) -->
+          <div class="col-md-6">
+            <label class="form-label">{{ 'ADVERTISE.FORM.SPACE_LABEL' | translate }}</label>
+            <input type="number" class="form-control custom-input no-shadow" formControlName="Area" min="0">
+          </div>
+        </div>
+
+        <!-- Advertise Details/Advantages -->
+        <div class="form-group mb-3">
+          <label class="form-label">{{ 'ADVERTISE.FORM.DETAILS_LABEL' | translate }}</label>
+          <textarea class="form-control custom-textarea no-shadow" rows="5" formControlName="Description"></textarea>
+        </div>
+
+        <p class="text-muted mb-1">{{ 'ADVERTISE.FORM.PHONE_UPDATE_MESSAGE' | translate }}</p>
+
+        <div class="row mb-3">
+          <!-- Phone Number -->
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="form-label">{{ 'ADVERTISE.FORM.PHONE_LABEL' | translate }}</label>
+            <div class="input-group">
+              <span class="input-group-text custom-input-group-text">
+                <img src="https://flagcdn.com/w20/eg.png" alt="Egypt" width="20">
+                <span class="ms-1">+20</span>
+              </span>
+              <input type="tel" class="form-control custom-input-group no-shadow" [value]="userphone" readonly>
+            </div>
+          </div>
+
+          <!-- Rent Type (Daily or Monthly) -->
+          <div class="col-md-6">
+            <label class="form-label">{{ 'ADVERTISE.FORM.RENT_TYPE_LABEL' | translate }}</label>
+            <select class="form-select custom-select no-shadow" formControlName="RentType">
+              <option value="" disabled selected>{{ 'ADVERTISE.FORM.RENT_TYPE_PLACEHOLDER' | translate }}</option>
+              <option value="Daily">{{ 'ADVERTISE.FORM.RENT_TYPE_DAILY' | translate }}</option>
+              <option value="Monthly">{{ 'ADVERTISE.FORM.RENT_TYPE_MONTHLY' | translate }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Checkboxes for WhatsApp and Contact via Email -->
+        
+
+        <!-- Map for Location -->
+        <div class="mb-3">
+          <label class="form-label">
+            <i class="fas fa-map-marker-alt address-icon"></i>
+            {{ 'ADVERTISE.FORM.MAP_LABEL' | translate }}
+          </label>
+          <small class="text-muted d-block mb-2">{{ 'ADVERTISE.FORM.MAP_INSTRUCTION' | translate }}</small>
+          <div class="mb-2">
+            <input type="text" class="form-control no-shadow" placeholder="{{ 'ADVERTISE.FORM.MAP_SEARCH_PLACEHOLDER' | translate }}"
+                   [(ngModel)]="searchAddress" [ngModelOptions]="{standalone: true}"
+                   (ngModelChange)="onSearchAddressChange($event)">
+          </div>
+          <div id="map" class="w-100 map-container"></div>
+          <button class="btn btn-secondary btn-sm mt-2" type="button" (click)="resetMap()">
+            {{ 'ADVERTISE.FORM.RESET_BUTTON' | translate }}
+          </button>
+          <div *ngIf="selectedAddress" class="success-message">
+            {{ 'ADVERTISE.FORM.SELECTED_LOCATION' | translate }}: {{ selectedAddress }}
+          </div>
+          <div *ngIf="searchError" class="error-message">
+            {{ searchError }}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <!-- Price (LE) -->
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="form-label">{{ 'ADVERTISE.FORM.PRICE_LABEL' | translate }}</label>
+            <input type="number" class="form-control custom-input no-shadow" formControlName="Price" min="0">
+            <div *ngIf="advertisementForm.get('Price')?.touched && advertisementForm.get('Price')?.invalid" class="error-message">
+              {{ 'ADVERTISE.FORM.ERROR.PRICE_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <!-- Bathrooms -->
+          <div class="col-md-6">
+            <label class="form-label">{{ 'ADVERTISE.FORM.BATHROOMS_LABEL' | translate }}</label>
+            <select class="form-select custom-select no-shadow" formControlName="Bathrooms">
+              <option value="" disabled selected>{{ 'ADVERTISE.FORM.BATHROOMS_PLACEHOLDER' | translate }}</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <!-- Rooms -->
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="form-label">{{ 'ADVERTISE.FORM.ROOMS_LABEL' | translate }}</label>
+            <input type="number" class="form-control custom-input no-shadow" formControlName="Bedrooms" min="0">
+          </div>
+
+          <!-- Additional Features -->
+          <div class="col-md-6">
+            <label class="form-label">{{ 'ADVERTISE.FORM.FEATURES_LABEL' | translate }}</label>
+            <div class="dropdown">
+              <button class="form-select custom-select no-shadow" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ 'ADVERTISE.FORM.FEATURES_PLACEHOLDER' | translate }}
+              </button>
+              <div class="dropdown-menu w-100">
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="furnishedCheck" formControlName="IsFurnished">
+                    <label class="form-check-label" for="furnishedCheck">{{ 'ADVERTISE.FORM.FEATURES.FURNISHED' | translate }}</label>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="petsAllowed" formControlName="AllowsPets">
+                    <label class="form-check-label" for="petsAllowed">{{ 'ADVERTISE.FORM.FEATURES.PETS_ALLOWED' | translate }}</label>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="smokingAllowed" formControlName="SmokingAllowed">
+                    <label class="form-check-label" for="smokingAllowed">{{ 'ADVERTISE.FORM.FEATURES.SMOKING_ALLOWED' | translate }}</label>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="garageCheck">
+                    <label class="form-check-label" for="garageCheck">{{ 'ADVERTISE.FORM.FEATURES.GARAGE' | translate }}</label>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="elevatorCheck" formControlName="HasElevator">
+                    <label class="form-check-label" for="elevatorCheck">{{ 'ADVERTISE.FORM.FEATURES.ELEVATOR' | translate }}</label>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="balconyCheck" formControlName="HasBalcony">
+                    <label class="form-check-label" for="balconyCheck">{{ 'ADVERTISE.FORM.FEATURES.BALCONY' | translate }}</label>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="heatingCheck">
+                    <label class="form-check-label" for="heatingCheck">{{ 'ADVERTISE.FORM.FEATURES.HEATING' | translate }}</label>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="wifiCheck" formControlName="HasInternet">
+                    <label class="form-check-label" for="wifiCheck">{{ 'ADVERTISE.FORM.FEATURES.WIFI' | translate }}</label>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <div class="form-check">
+                    <input class="form-check-input custom-checkbox no-shadow green-checkbox" type="checkbox" id="securityCheck" formControlName="HasSecurity">
+                    <label class="form-check-label" for="securityCheck">{{ 'ADVERTISE.FORM.FEATURES.SECURITY' | translate }}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Available Dates -->
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="form-label">{{ 'ADVERTISE.FORM.AVAILABLE_FROM_LABEL' | translate }}</label>
+            <input type="date" class="form-control custom-input no-shadow" formControlName="AvailableFrom">
+            <div *ngIf="advertisementForm.get('AvailableFrom')?.touched && advertisementForm.get('AvailableFrom')?.invalid" class="error-message">
+              {{ 'ADVERTISE.FORM.ERROR.AVAILABLE_FROM_REQUIRED' | translate }}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'ADVERTISE.FORM.AVAILABLE_TO_LABEL' | translate }}</label>
+            <input type="date" class="form-control custom-input no-shadow" formControlName="AvailableTo">
+            <div *ngIf="advertisementForm.get('AvailableTo')?.touched && advertisementForm.get('AvailableTo')?.invalid" class="error-message">
+              {{ 'ADVERTISE.FORM.ERROR.AVAILABLE_TO_REQUIRED' | translate }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Floor and Minimum Booking Days -->
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="form-label">{{ 'ADVERTISE.FORM.FLOOR_LABEL' | translate }}</label>
+            <input type="number" class="form-control custom-input no-shadow" formControlName="Floor" min="0">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'ADVERTISE.FORM.MIN_BOOKING_DAYS_LABEL' | translate }}</label>
+            <input type="number" class="form-control custom-input no-shadow" formControlName="MinBookingDays" min="0">
+          </div>
+        </div>
+
+        <!-- Images -->
+        <div class="upload-area mb-4 text-center">
+          <i class="fas fa-cloud-upload-alt upload-icon"></i>
+          <p>{{ 'ADVERTISE.FORM.DRAG_PHOTO' | translate }}</p>
+          <p class="text-muted">{{ 'ADVERTISE.FORM.OR' | translate }}</p>
+          <p>{{ 'ADVERTISE.FORM.CHOOSE_FILE' | translate }}</p>
+          <input type="file" class="d-none" id="imageUpload" multiple accept="image/*" (change)="onFileChange($event)">
+          <button type="button" class="btn btn-outline-primary custom-browse-btn" (click)="triggerFileInput()">
+            {{ 'ADVERTISE.FORM.BROWSE_BUTTON' | translate }}
+          </button>
+          <div *ngIf="selectedFiles.length > 0" class="selected-files mt-3">
+            <p>{{ 'ADVERTISE.FORM.SELECTED_FILES' | translate }}</p>
+            <ul>
+              <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
+            </ul>
+          </div>
+          <div *ngIf="imageError" class="error-message mt-2">
+            {{ imageError }}
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn custom-submit-btn" [disabled]="advertisementForm.invalid">
+            {{ 'ADVERTISE.FORM.SUBMIT_BUTTON' | translate }}
+          </button>
+        </div>
+      </form>
+
+      <!-- Popup -->
+      <div class="popup-overlay" *ngIf="showPaymentPopup">
+        <div class="popup-content">
+          <div class="modal-body text-center">
+            <div class="success-circle">
+              <i class="fa fa-exclamation"></i>
+            </div>
+          </div>
+          <h3>{{ 'ADVERTISE.POPUP.TITLE' | translate }}</h3>
+          <h2 class="text-muted fs-5 m-3">{{ 'ADVERTISE.POPUP.SUBTITLE' | translate }}</h2>
+          <div class="popup-actions">
+            <button class="cancel-button" (click)="onCancelPopup()">
+              {{ 'ADVERTISE.POPUP.CANCEL_BUTTON' | translate }}
+            </button>
+            <button class="pay-button" (click)="onPay()">
+              {{ 'ADVERTISE.POPUP.PAY_BUTTON' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

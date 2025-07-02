@@ -1,0 +1,79 @@
+<footer class="footer" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <div class="container">
+    <div class="row py-3">
+      <div class="col-md-3 d-flex flex-column align-items-md-start align-items-center mb-4 mb-md-0">
+        <div class="d-flex align-items-center mb-3 p-0 mt-0">
+          <img src="./assets/imgs/logo.png" alt="Peron Logo" class="logo me-2">
+          <h3 class="mb-0 brand-name">{{ translations['FOOTER.BRAND_NAME'] }}</h3>
+        </div>
+        <p class="mb-1 fs-5 fw-normal mt-3 d-flex align-items-center" style="font-weight: 200;">
+          <img src="./assets/imgs/mdi_phone-outline.png" 
+               [ngClass]="currentLang === 'ar' ? 'ms-2' : 'me-2'" alt="">
+          <span [dir]="currentLang === 'ar' ? 'ltr' : 'ltr'">(+020)1023283079</span>
+        </p>
+        <p class="mb-3 fs-5 fw-normal mt-3 d-flex align-items-center" style="font-weight: 200;">
+          <img src="./assets/imgs/mage_email.png" 
+               [ngClass]="currentLang === 'ar' ? 'ms-2' : 'me-2'" alt="">
+          <span [dir]="currentLang === 'ar' ? 'ltr' : 'ltr'">peron@gmail.com</span>
+        </p>
+      </div>
+
+      <div class="col-md-2 footer-links mb-4 mb-md-0">
+        <h4>{{ translations['FOOTER.INFORMATION.TITLE'] }}</h4>
+        <ul>
+          <div class="d-flex mt-4 flex-column gap-3 justify-content-between">
+            <li><a routerLink="/profile">{{ translations['FOOTER.INFORMATION.MY_ACCOUNT'] }}</a></li>
+            <li><a routerLink="/wishlist">{{ translations['FOOTER.INFORMATION.MY_WISHLIST'] }}</a></li>
+            <li><a (click)="logout()">{{ translations['FOOTER.INFORMATION.CHECKOUT'] }}</a></li>
+          </div>
+        </ul>
+      </div>
+
+      <div class="col-md-2 footer-links mb-4 mb-md-0">
+        <h4>{{ translations['FOOTER.SERVICE.TITLE'] }}</h4>
+        <ul>
+          <div class="d-flex mt-4 flex-column gap-3 justify-content-between">
+            <li><a routerLink="/about" >{{ translations['FOOTER.SERVICE.ABOUT_US'] }}</a></li>
+            <li><a routerLink="/terms">{{ translations['FOOTER.SERVICE.TERMS_CONDITIONS'] }}</a></li>
+          </div>
+        </ul>
+      </div>
+
+      <div class="col-md-3 footer-subscribe text-start offset-md-1">
+        <h4>{{ translations['FOOTER.SUBSCRIBE.TITLE'] }}</h4>
+        <p class="mb-3 my-4" style="font-weight: 300;">
+          {{ translations['FOOTER.SUBSCRIBE.DESCRIPTION'] }}
+        </p>
+        <form>
+          <div class="email-box mt-3 rounded-3" style="width: 80%;">
+            <img class="ms-2" src="./assets/imgs/mage_email.png">
+            <input type="email" class="form-control focus-ring-success focus-ring" 
+                   [placeholder]="translations['FOOTER.SUBSCRIBE.EMAIL']">
+            <button type="submit">
+              <i class="fa-solid" 
+                 [ngClass]="currentLang === 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row footer-bottom pt-3 mt-3">
+      <div class="col-11 d-flex flex-column flex-md-row justify-content-md-between align-items-center">
+        <div class="payment-icons">
+          <img src="./assets/imgs/pay.png" alt="Google Pay" class="me-2">
+          <img src="./assets/imgs/pp.png" alt="PayPal" class="me-2">
+          <img src="./assets/imgs/visa.png" alt="Visa">
+        </div>
+        <p class="mb-2 mb-md-0" style="font-weight: 400;">
+          {{ translations['FOOTER.BOTTOM_RIGHTS']?.replace('{year}', currentYear) }}
+        </p>
+        <div class="social-icons ms-2">
+          <a href="https://www.facebook.com/share/1BiyXv9eF2/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/pero.n98"><i class="fab fa-instagram"></i></a>
+          <a href="http://wa.me/201119723643"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

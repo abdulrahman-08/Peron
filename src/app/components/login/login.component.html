@@ -1,0 +1,52 @@
+<div class="login-container d-flex position-relative flex-column min-vh-100" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <header class="text-center mt-2 p-2" style="z-index: 3;">
+    <div class="d-flex align-items-center justify-content-center">
+      <img src="./assets/imgs/logo.png" alt="Peron Logo" class="me-3" style="width: 90px; height: 90px;" />
+      <span class="brand-name">{{ 'FOOTER.BRAND_NAME' | translate }}</span>
+    </div>
+  </header>
+
+  <div class="color position-absolute top-0 start-0 end-0 bottom-0"></div>
+  <div class="col-10 col-sm-8 col-md-5 mt-3 col-lg-4 mx-auto mb-4" style="z-index: 3;">
+    <div class="login-form card p-4 shadow">
+      <div class="card-body">
+        <h2 class="text-center mb-4 fw-bold">{{ 'LOGIN.TITLE' | translate }}</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="setLogin()">
+          <div>
+            <div class="input-group">
+              <input type="email" class="form-control focus-ring focus-ring-light" placeholder=" "
+                     formControlName="email" #email />
+              <label>{{ 'LOGIN.EMAIL_LABEL' | translate }}</label>
+            </div>
+          </div>
+          <div>
+            <div class="input-group">
+              <input type="password" class="form-control focus-ring focus-ring-light" placeholder=" "
+                     formControlName="password" #password />
+              <label>{{ 'LOGIN.PASSWORD_LABEL' | translate }}</label>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+            <div class="form-check-wrapper">
+              <div class="form-check d-flex align-items-center">
+                <input class="form-check-input focus-ring focus-ring-success custom-checkbox" type="checkbox"
+                       id="remember-me">
+                <label class="form-check-label ms-1 mt-1  font-sm" for="remember-me">{{ 'LOGIN.REMEMBER_ME' | translate }}</label>
+              </div>
+            </div>
+            <a routerLink="/auth/forget-password" class="text-decoration-none font-sm text-main">{{ 'LOGIN.FORGOT_PASSWORD' | translate }}</a>
+          </div>
+          <button type="submit" style="background-color: #0F7757;" class="btn text-white w-100">
+            <i *ngIf="spinCheck" class="fas me-1 fa-spin fa-spinner"></i>{{ 'LOGIN.SUBMIT_BUTTON' | translate }}
+          </button>
+          <p *ngIf="msError" class="alert mt-2 p-2 text-danger">{{ msError }}</p>
+        </form>
+       
+      </div>
+      <p class="text-center text-muted mb-0 mt-5">
+        {{ 'LOGIN.NO_ACCOUNT' | translate }} 
+        <a routerLink="/auth/register" class="text-main fw-bold text-decoration-none">{{ 'LOGIN.SIGN_UP' | translate }}</a>
+      </p>
+    </div>
+  </div>
+</div>

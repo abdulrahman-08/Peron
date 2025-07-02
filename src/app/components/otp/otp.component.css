@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+.login-container {
+    padding: 0;
+    background-image: url('../../../assets/imgs/otp.png');
+     background-size: cover;
+      background-position: center;
+      margin: 0px;
+  }
+  .color{
+    background-color: rgba(0, 0, 0, 0.658);
+   z-index: 2;
+}
+  .brand-name {
+    color: white;
+    font-size: 40px; 
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+
+  }
+  .resend.disabled {
+    cursor: not-allowed;
+    color: #ccc; 
+    pointer-events: none; 
+  }
+  
+  .login-form {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  .otp-box {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    color: var(--main-color);
+    text-align: center;
+    border: 2px solid #ccc;
+    font-weight: 600;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.1ms ease-in-out;
+  }
+  .otp-box.filled {
+    border: 2px solid var(--main-color);
+
+  }
+  .otp-box:focus {
+    border: 2px solid royalblue;
+    color: royalblue;
+  }
+  
+  .otp-timer {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .resend {
+    color: #006400;
+    font-weight: normal;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  

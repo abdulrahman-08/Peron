@@ -1,0 +1,48 @@
+<div class="chat-icon" (click)="toggleChat()" *ngIf="!isChatOpen">
+  <i class="fas fa-comment"></i>
+</div>
+
+<div class="chat-container chat-main" *ngIf="isChatOpen" [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <button class="close-btn" (click)="toggleChat()">
+    <i class="fas fa-times"></i>
+  </button>
+
+  <div class="chat-body">
+    <div class="chat-header">
+      <h5>{{ 'CHAT.TITLE' | translate }}</h5>
+      <img src="./assets/imgs/Ai_chat.png" [alt]="'CHAT.LOGO_ALT' | translate" class="chat-logo">
+      <div class="smart-services">
+        <h6>{{ 'CHAT.SMART_SERVICES.TITLE' | translate }}</h6>
+        <p>{{ 'CHAT.SMART_SERVICES.SEARCH' | translate }}</p>
+        <p>{{ 'CHAT.SMART_SERVICES.INQUIRE' | translate }}</p>
+        <span style="font-size: 12px; color: #BFBFBF;">{{ 'CHAT.SMART_SERVICES.EXAMPLE' | translate }}</span>
+      </div>
+    </div>
+
+    <div class="chat-messages">
+      <div *ngFor="let message of messages" class="message" [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+        <p>{{ message.text }}</p>
+        <span class="message-time">{{ message.timestamp | date:'shortTime' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div class="message bot-message loading-message" *ngIf="isLoading">
+    <div class="loading-dots">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="chat-footer">
+    <div class="input-wrapper">
+      <input type="text" [placeholder]="'CHAT.INPUT_PLACEHOLDER' | translate" [(ngModel)]="newMessage" (keypress)="onKeyPress($event)">
+    </div>
+    <button (click)="sendMessage()" [disabled]="isLoading">
+      <img src="./assets/imgs/aichatsend.png" [alt]="'CHAT.SEND_ALT' | translate">
+    </button>
+  </div>
+</div>
